@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Content /> should render the component 1`] = `
+<p
+  styleName="container"
+>
+  Hello from 
+  Test app
+   !!
+</p>
+`;

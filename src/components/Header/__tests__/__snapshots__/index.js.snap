@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render the component 1`] = `
+<h1
+  styleName="container"
+>
+  React Starter, 
+  Test app
+</h1>
+`;
