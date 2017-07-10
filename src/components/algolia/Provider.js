@@ -2,7 +2,11 @@ import { Component, Children } from 'react';
 import PropTypes from 'prop-types';
 import algoliasearch from 'algoliasearch';
 import algoliasearchHelper from 'algoliasearch-helper';
-import ContextTypes from './ContextTypes';
+
+export const ContextTypes = {
+  algoliaClient: PropTypes.object.isRequired,
+  algoliaHelper: PropTypes.object.isRequired,
+};
 
 class Provider extends Component {
 
