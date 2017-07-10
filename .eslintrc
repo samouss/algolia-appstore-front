@@ -35,6 +35,7 @@
     "new-cap": 0,
     "no-console": 0,
     "no-shadow": 0,
+    "no-underscore-dangle": ["error", { "allow": ["_highlightResult"] }],
     "no-use-before-define": ["error", { "functions": false, "classes": true }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/require-extension": "off",
