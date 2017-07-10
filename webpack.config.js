@@ -80,8 +80,6 @@ module.exports = (options = {}) => {
       new webpack.NamedModulesPlugin(),
       new webpack.NamedChunksPlugin(),
 
-      new webpack.optimize.ModuleConcatenationPlugin(),
-
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         filename: JSFilenameIdentifier,
@@ -103,6 +101,8 @@ module.exports = (options = {}) => {
         inject: true,
         template: 'src/index.html',
       }),
+
+      isProduction && new webpack.optimize.ModuleConcatenationPlugin(),
 
       isProduction && new ExtractTextPlugin({
         filename: '[name].[contenthash:8].css',
