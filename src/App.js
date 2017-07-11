@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'components/Algolia';
+import Layout from 'components/Layout';
 import PaginateAppList from 'containers/PaginateAppList';
 
 const appId = 'RTMJH2ID8J';
@@ -12,7 +13,9 @@ const App = () => (
     apiKey={apiKey}
     indexName={indexName}
   >
-    <PaginateAppList />
+    <Layout>
+      <PaginateAppList />
+    </Layout>
   </Provider>
 );
 

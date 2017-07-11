@@ -6,6 +6,8 @@ exports[`<App> expect to render 1`] = `
   appId="RTMJH2ID8J"
   indexName="apps"
 >
-  <withPaginateResults(AppList) />
+  <Layout>
+    <withPaginateResults(AppList) />
+  </Layout>
 </Provider>
 `;
