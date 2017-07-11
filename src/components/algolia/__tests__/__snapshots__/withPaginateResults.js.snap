@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`algolia <Provider /> expect to render 1`] = `
+<Component
+  className="sample-class-name"
+  hits={Array []}
+  isEndReached={false}
+  isInitialLoad={true}
+  nbHits={0}
+  nbPages={0}
+  onNextPage={[Function]}
+  page={1}
+>
+  <div>
+    Content
+  </div>
+</Component>
+`;
