@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App> expect to render 1`] = `
+<Provider
+  apiKey="f8dac63a6dc38d8bd5893dad8969d819"
+  appId="RTMJH2ID8J"
+  indexName="apps"
+>
+  <withPaginateResults(AppList) />
+</Provider>
+`;
