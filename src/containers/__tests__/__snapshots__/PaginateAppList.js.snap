@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PaginateAppList /> expect to render 1`] = `
+<AppList
+  hits={Array []}
+  isEndReached={false}
+  isInitialLoad={true}
+  nbHits={0}
+  nbPages={0}
+  onNextPage={[Function]}
+  page={1}
+  processingTimeMS={0}
+/>
+`;
