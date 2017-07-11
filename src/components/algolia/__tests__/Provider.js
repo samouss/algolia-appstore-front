@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import algoliasearch from 'algoliasearch';
 import algoliasearchHelper from 'algoliasearch-helper';
+import { highlightPreTag, highlightPostTag } from '../utils';
 import Provider from '../Provider';
 
 jest.mock('algoliasearch', () => jest.fn(() => ({
@@ -83,26 +84,60 @@ describe('algolia', () => {
       expect(actual).toEqual(expectation);
     });
 
-    it('expect to call search function onDidMount', () => {
-      const props = {
-        ...defaultProps,
-      };
+    describe('componentDidMount', () => {
+      it('expect to call setQueryParameter', () => {
+        const props = {
+          ...defaultProps,
+        };
 
-      algoliasearchHelper.mockImplementationOnce(() => ({
-        search: jest.fn(),
-      }));
+        algoliasearchHelper.mockImplementationOnce(() => ({
+          setQueryParameter: jest.fn().mockReturnThis(),
+          search: jest.fn(),
+        }));
 
-      const component = shallow(
-        <Provider
-          {...props}
-        >
-          <div>Content</div>
-        </Provider>,
-      );
+        const component = shallow(
+          <Provider
+            {...props}
+          >
+            <div>Content</div>
+          </Provider>,
+        );
 
-      component.instance().componentDidMount();
+        component.instance().componentDidMount();
 
-      expect(component.instance().helper.search).toHaveBeenCalled();
+        expect(component.instance().helper.setQueryParameter).toHaveBeenCalledWith(
+          'highlightPreTag',
+          highlightPreTag,
+        );
+
+        expect(component.instance().helper.setQueryParameter).toHaveBeenCalledWith(
+          'highlightPostTag',
+          highlightPostTag,
+        );
+      });
+
+      it('expect to call search', () => {
+        const props = {
+          ...defaultProps,
+        };
+
+        algoliasearchHelper.mockImplementationOnce(() => ({
+          setQueryParameter: jest.fn().mockReturnThis(),
+          search: jest.fn(),
+        }));
+
+        const component = shallow(
+          <Provider
+            {...props}
+          >
+            <div>Content</div>
+          </Provider>,
+        );
+
+        component.instance().componentDidMount();
+
+        expect(component.instance().helper.search).toHaveBeenCalled();
+      });
     });
   });
 });

@@ -2,6 +2,7 @@ import { Component, Children } from 'react';
 import PropTypes from 'prop-types';
 import algoliasearch from 'algoliasearch';
 import algoliasearchHelper from 'algoliasearch-helper';
+import { highlightPreTag, highlightPostTag } from './utils';
 
 export const ContextTypes = {
   algoliaClient: PropTypes.object.isRequired,
@@ -25,7 +26,10 @@ class Provider extends Component {
   }
 
   componentDidMount() {
-    this.helper.search();
+    this.helper
+      .setQueryParameter('highlightPreTag', highlightPreTag)
+      .setQueryParameter('highlightPostTag', highlightPostTag)
+      .search();
   }
 
   render() {
