@@ -1,4 +1,4 @@
-import { escape } from 'lodash';
+import escape from 'lodash.escape';
 
 export const highlightPreTag = '__algolia__highlight__pre__tag__';
 export const highlightPostTag = '__algolia__highlight__post__tag__';
