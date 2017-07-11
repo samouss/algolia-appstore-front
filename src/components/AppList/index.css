@@ -1,0 +1,39 @@
+.AppList {
+  width: 90vw;
+  /* @TODO: move margin to Layout component */
+  margin: 2.5vh auto;
+}
+
+.AppList__Header {
+  min-height: 11px;
+  margin-bottom: 4px;
+
+  @media (--tablet) {
+    min-height: 15px;
+  }
+}
+
+.AppList__Stat {
+  font-size: 0.65rem;
+  text-align: right;
+  font-style: italic;
+  color: #b9b9b9;
+
+  @media (--tablet) {
+    font-size: 0.85rem;
+  }
+}
+
+.AppList__StatHits {
+  font-weight: 500;
+}
+
+.AppList__StatTime {
+
+}
+
+.AppList__Content {
+  border: 1px solid #f2f2f2;
+  background-color: #ffffff;
+  min-height: 95vh;
+}
