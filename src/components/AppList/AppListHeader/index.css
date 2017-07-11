@@ -1,0 +1,23 @@
+.AppListHeader {
+  min-height: 11px;
+  margin-bottom: 4px;
+
+  @media (--tablet) {
+    min-height: 15px;
+  }
+}
+
+.AppListHeader__Stat {
+  font-size: 0.65rem;
+  text-align: right;
+  font-style: italic;
+  color: #b9b9b9;
+
+  @media (--tablet) {
+    font-size: 0.85rem;
+  }
+}
+
+.AppListHeader__StatHits {
+  font-weight: 500;
+}

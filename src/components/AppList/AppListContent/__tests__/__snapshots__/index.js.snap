@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppListContent /> expect to render 1`] = `
+<InfiniteList
+  className="infinite-list"
+  containerHeight=""
+  containerTagName="ul"
+  isAttachOnWindow={true}
+  isEndReached={false}
+  isLoading={false}
+  onReachThreshold={[Function]}
+  styleName="AppListContent"
+  threshold={680}
+>
+  <AppItem
+    _highlightResult={
+      Object {
+        "name": Object {
+          "value": "__algolia__highlight__pre__tag__Cut the__algolia__highlight__post__tag__ Rope",
+        },
+      }
+    }
+    image="http://image.com"
+    link="http://link.com"
+    name="Cut the Rope"
+    price="0 $"
+    rating={3}
+    ratingCount={1234}
+  />
+  <AppItem
+    _highlightResult={
+      Object {
+        "name": Object {
+          "value": "Angry Birds",
+        },
+      }
+    }
+    image="http://image.com"
+    link="http://link.com"
+    name="Angry Birds"
+    price="0 $"
+    rating={5}
+    ratingCount={6789}
+  />
+</InfiniteList>
+`;

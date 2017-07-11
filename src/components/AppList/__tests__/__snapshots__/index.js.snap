@@ -4,106 +4,85 @@ exports[`<AppList /> expect to render 1`] = `
 <div
   styleName="AppList"
 >
-  <div
-    styleName="AppList__Header"
-  >
-    <p
-      styleName="AppList__Stat"
-    >
-      <span
-        styleName="AppList__StatHits"
-      >
-        500
-         results 
-      </span>
-      <span>
-        found in 
-      </span>
-      <span
-        styleName="AppList__StatTime"
-      >
-        5
-        ms
-      </span>
-    </p>
-  </div>
-  <ul
-    styleName="AppList__Content"
-  >
-    <AppItem
-      _highlightResult={
+  <AppList
+    hits={
+      Array [
         Object {
-          "name": Object {
-            "value": "__algolia__highlight__pre__tag__Cut the__algolia__highlight__post__tag__ Rope",
+          "_highlightResult": Object {
+            "name": Object {
+              "value": "__algolia__highlight__pre__tag__Cut the__algolia__highlight__post__tag__ Rope",
+            },
           },
-        }
-      }
-      image="http://image.com"
-      link="http://link.com"
-      name="Cut the Rope"
-      price="0 $"
-      rating={3}
-      ratingCount={1234}
-    />
-    <AppItem
-      _highlightResult={
+          "image": "http://image.com",
+          "link": "http://link.com",
+          "name": "Cut the Rope",
+          "objectID": "1234",
+          "price": "0 $",
+          "rating": 3,
+          "ratingCount": 1234,
+        },
         Object {
-          "name": Object {
-            "value": "Angry Birds",
+          "_highlightResult": Object {
+            "name": Object {
+              "value": "Angry Birds",
+            },
           },
-        }
-      }
-      image="http://image.com"
-      link="http://link.com"
-      name="Angry Birds"
-      price="0 $"
-      rating={5}
-      ratingCount={6789}
-    />
-  </ul>
-</div>
-`;
-
-exports[`<AppList /> expect to render on initial load 1`] = `
-<div
-  styleName="AppList"
->
-  <div
-    styleName="AppList__Header"
+          "image": "http://image.com",
+          "link": "http://link.com",
+          "name": "Angry Birds",
+          "objectID": "5678",
+          "price": "0 $",
+          "rating": 5,
+          "ratingCount": 6789,
+        },
+      ]
+    }
+    isEndReached={false}
+    isInitialLoad={false}
+    isLoading={false}
+    nbHits={500}
+    onNextPage={[Function]}
+    processingTimeMS={5}
   />
-  <ul
-    styleName="AppList__Content"
-  >
-    <AppItem
-      _highlightResult={
+  <AppListContent
+    hits={
+      Array [
         Object {
-          "name": Object {
-            "value": "__algolia__highlight__pre__tag__Cut the__algolia__highlight__post__tag__ Rope",
+          "_highlightResult": Object {
+            "name": Object {
+              "value": "__algolia__highlight__pre__tag__Cut the__algolia__highlight__post__tag__ Rope",
+            },
           },
-        }
-      }
-      image="http://image.com"
-      link="http://link.com"
-      name="Cut the Rope"
-      price="0 $"
-      rating={3}
-      ratingCount={1234}
-    />
-    <AppItem
-      _highlightResult={
+          "image": "http://image.com",
+          "link": "http://link.com",
+          "name": "Cut the Rope",
+          "objectID": "1234",
+          "price": "0 $",
+          "rating": 3,
+          "ratingCount": 1234,
+        },
         Object {
-          "name": Object {
-            "value": "Angry Birds",
+          "_highlightResult": Object {
+            "name": Object {
+              "value": "Angry Birds",
+            },
           },
-        }
-      }
-      image="http://image.com"
-      link="http://link.com"
-      name="Angry Birds"
-      price="0 $"
-      rating={5}
-      ratingCount={6789}
-    />
-  </ul>
+          "image": "http://image.com",
+          "link": "http://link.com",
+          "name": "Angry Birds",
+          "objectID": "5678",
+          "price": "0 $",
+          "rating": 5,
+          "ratingCount": 6789,
+        },
+      ]
+    }
+    isEndReached={false}
+    isInitialLoad={false}
+    isLoading={false}
+    nbHits={500}
+    onNextPage={[Function]}
+    processingTimeMS={5}
+  />
 </div>
 `;

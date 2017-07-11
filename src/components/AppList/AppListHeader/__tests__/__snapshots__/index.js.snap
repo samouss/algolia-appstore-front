@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppListHeader /> expect to render 1`] = `
+<div
+  styleName="AppListHeader"
+>
+  <p
+    styleName="AppListHeader__Stat"
+  >
+    <span
+      styleName="AppListHeader__StatHits"
+    >
+      500
+       results 
+    </span>
+    <span>
+      found in 
+    </span>
+    <span>
+      5
+      ms
+    </span>
+  </p>
+</div>
+`;
+
+exports[`<AppListHeader /> expect to render on initial load 1`] = `
+<div
+  styleName="AppListHeader"
+/>
+`;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AppList from '../index';
+import AppListContent from '../index';
 
-describe('<AppList />', () => {
+describe('<AppListContent />', () => {
   const defaultProps = {
     hits: [
       {
@@ -34,9 +34,6 @@ describe('<AppList />', () => {
         },
       },
     ],
-    nbHits: 500,
-    processingTimeMS: 5,
-    isInitialLoad: false,
     isLoading: false,
     isEndReached: false,
     onNextPage: () => {},
@@ -48,11 +45,30 @@ describe('<AppList />', () => {
     };
 
     const component = shallow(
-      <AppList
+      <AppListContent
         {...props}
       />,
     );
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('expect to call onNextPage', () => {
+    const props = {
+      ...defaultProps,
+      onNextPage: jest.fn(),
+    };
+
+    const component = shallow(
+      <AppListContent
+        {...props}
+      />,
+    );
+
+    component
+      .find('InfiniteList')
+      .simulate('reachThreshold');
+
+    expect(props.onNextPage).toHaveBeenCalled();
   });
 });
