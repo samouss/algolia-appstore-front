@@ -18,6 +18,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
     "babel-plugin-module-resolver": "2.7.1",
@@ -45,6 +46,9 @@
     "html-webpack-plugin": "2.29.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "20.0.4",
+    "postcss-custom-media": "6.0.0",
+    "postcss-loader": "2.0.6",
+    "postcss-nested": "2.0.2",
     "react-test-renderer": "15.6.1",
     "style-loader": "0.18.2",
     "webpack": "3.1.0",
@@ -57,6 +61,10 @@
     "react": "15.6.1",
     "react-dom": "15.6.1"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "jest": {
     "moduleNameMapper": {
       "\\.css$": "identity-obj-proxy"
