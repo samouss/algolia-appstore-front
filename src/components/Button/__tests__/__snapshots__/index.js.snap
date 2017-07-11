@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> expect to render 1`] = `
+<a
+  href="http://link.com"
+  styleName="Button"
+  target="_blank"
+>
+  Link
+</a>
+`;
