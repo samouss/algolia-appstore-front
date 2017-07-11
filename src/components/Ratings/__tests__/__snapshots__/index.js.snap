@@ -7,6 +7,7 @@ exports[`<Ratings /> expect to render note 0 1`] = `
       "color": "#ff9501",
     }
   }
+  styleName="Ratings"
 >
   <StarEmpty />
   <StarEmpty />
@@ -23,6 +24,7 @@ exports[`<Ratings /> expect to render note 3 1`] = `
       "color": "#ff9501",
     }
   }
+  styleName="Ratings"
 >
   <Star />
   <Star />
@@ -39,6 +41,7 @@ exports[`<Ratings /> expect to render note 3.5 1`] = `
       "color": "#ff9501",
     }
   }
+  styleName="Ratings"
 >
   <Star />
   <Star />
@@ -55,6 +58,7 @@ exports[`<Ratings /> expect to render note 5 1`] = `
       "color": "#ff9501",
     }
   }
+  styleName="Ratings"
 >
   <Star />
   <Star />
@@ -71,6 +75,7 @@ exports[`<Ratings /> expect to render note 5 on 10 1`] = `
       "color": "#ff9501",
     }
   }
+  styleName="Ratings"
 >
   <Star />
   <Star />
@@ -92,6 +97,7 @@ exports[`<Ratings /> expect to render with custom color 1`] = `
       "color": "red",
     }
   }
+  styleName="Ratings"
 >
   <StarEmpty />
   <StarEmpty />

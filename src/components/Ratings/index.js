@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import './index.css';
 
 const Star = () => (
   <i className="fa fa-star" aria-hidden="true" />
@@ -16,7 +17,10 @@ const StarHalf = () => (
 );
 
 const Ratings = ({ note, on, color }) => (
-  <div style={{ color }}>
+  <div
+    styleName="Ratings"
+    style={{ color }}
+  >
     {new Array(on).fill(null).map((_, index) => {
       const next = index + 1;
 
