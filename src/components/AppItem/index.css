@@ -1,0 +1,62 @@
+.AppItem {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #f2f2f2;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (--tablet) {
+    padding: 25px;
+  }
+}
+
+.AppItem__Details {
+  margin-left: 10px;
+  overflow: hidden;
+  flex-basis: 55%;
+
+  @media (--tablet) {
+    margin-left: 20px;
+    flex-basis: 75%;
+  }
+}
+
+.AppItem__Name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  em {
+    font-weight: 600;
+    color: #0080ff;
+  }
+
+  @media (--tablet) {
+    font-size: 1.3rem;
+  }
+}
+
+.AppItem__Ratings {
+  display: flex;
+  font-size: 0.8rem;
+  margin-top: 2px;
+
+  @media (--tablet) {
+    font-size: 1rem;
+  }
+}
+
+.AppItem__Ratings__Count {
+  color: #b9b9b9;
+  margin-left: 5px;
+}
+
+.AppItem__Actions {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

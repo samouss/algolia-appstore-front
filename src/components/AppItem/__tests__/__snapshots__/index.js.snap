@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppItem /> expect to render 1`] = `
+<li
+  styleName="AppItem"
+>
+  <Thumbnail
+    alt="Cut the Rope"
+    source="http://image.com"
+  />
+  <div
+    styleName="AppItem__Details"
+  >
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<em>Cut the</em> Rope",
+        }
+      }
+      styleName="AppItem__Name"
+    />
+    <div
+      styleName="AppItem__Ratings"
+    >
+      <Ratings
+        color="#ff9501"
+        note={3}
+        on={5}
+      />
+      <span
+        styleName="AppItem__Ratings__Count"
+      >
+        (
+        1234
+        )
+      </span>
+    </div>
+  </div>
+  <div
+    styleName="AppItem__Actions"
+  >
+    <Button
+      target="_blank"
+      to="http://link.com"
+    >
+      Get
+    </Button>
+  </div>
+</li>
+`;
+
+exports[`<AppItem /> expect to render a paid app 1`] = `
+<li
+  styleName="AppItem"
+>
+  <Thumbnail
+    alt="Cut the Rope"
+    source="http://image.com"
+  />
+  <div
+    styleName="AppItem__Details"
+  >
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<em>Cut the</em> Rope",
+        }
+      }
+      styleName="AppItem__Name"
+    />
+    <div
+      styleName="AppItem__Ratings"
+    >
+      <Ratings
+        color="#ff9501"
+        note={3}
+        on={5}
+      />
+      <span
+        styleName="AppItem__Ratings__Count"
+      >
+        (
+        1234
+        )
+      </span>
+    </div>
+  </div>
+  <div
+    styleName="AppItem__Actions"
+  >
+    <Button
+      target="_blank"
+      to="http://link.com"
+    >
+      0.99 $
+    </Button>
+  </div>
+</li>
+`;
