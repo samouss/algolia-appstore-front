@@ -139,8 +139,12 @@ describe('algolia', () => {
           { context },
         );
 
+        // @NOTE: simulate initial load
+        component.setState({ isLoading: false });
+
         component.instance().onNextPage();
 
+        expect(component.state().isLoading).toBe(true);
         expect(component.state().isEndReached).toBe(false);
         expect(context.algoliaHelper.nextPage).toHaveBeenCalled();
         expect(context.algoliaHelper.search).toHaveBeenCalled();
@@ -162,8 +166,12 @@ describe('algolia', () => {
           page: 4,
         });
 
+        // @NOTE: simulate initial load
+        component.setState({ isLoading: false });
+
         component.instance().onNextPage();
 
+        expect(component.state().isLoading).toBe(true);
         expect(component.state().isEndReached).toBe(true);
         expect(context.algoliaHelper.nextPage).toHaveBeenCalled();
         expect(context.algoliaHelper.search).toHaveBeenCalled();
@@ -184,8 +192,12 @@ describe('algolia', () => {
           isEndReached: true,
         });
 
+        // @NOTE: simulate initial load
+        component.setState({ isLoading: false });
+
         component.instance().onNextPage();
 
+        expect(component.state().isLoading).toBe(false);
         expect(context.algoliaHelper.nextPage).not.toHaveBeenCalled();
         expect(context.algoliaHelper.search).not.toHaveBeenCalled();
       });
@@ -223,8 +235,9 @@ describe('algolia', () => {
           nbPages: 20,
           page: 6,
           processingTimeMS: 5,
-          isEndReached: false,
+          isLoading: false,
           isInitialLoad: false,
+          isEndReached: false,
         };
 
         component.instance().updateState(content);

@@ -6,6 +6,7 @@ exports[`algolia <Provider /> expect to render 1`] = `
   hits={Array []}
   isEndReached={false}
   isInitialLoad={true}
+  isLoading={true}
   nbHits={0}
   nbPages={0}
   onNextPage={[Function]}

@@ -16,8 +16,9 @@ const withPaginateResults = ({
         nbPages: 0,
         page: 1,
         processingTimeMS: 0,
-        isEndReached: false,
+        isLoading: true,
         isInitialLoad: true,
+        isEndReached: false,
       };
 
       this.onNextPage = this.onNextPage.bind(this);
@@ -51,6 +52,7 @@ const withPaginateResults = ({
 
       this.setState(() => ({
         isEndReached: isLastPage,
+        isLoading: true,
       }));
 
       this.context.algoliaHelper
@@ -65,6 +67,7 @@ const withPaginateResults = ({
         nbPages: content.nbPages,
         page: content.page + 1,
         processingTimeMS: content.processingTimeMS,
+        isLoading: false,
         isInitialLoad: false,
       }));
     }
