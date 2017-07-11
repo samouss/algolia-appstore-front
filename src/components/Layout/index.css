@@ -1,0 +1,8 @@
+.Layout {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 768px;
+  min-height: 95vh;
+  margin: 2.5vh auto;
+}
