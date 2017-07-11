@@ -2,7 +2,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import './index.css';
 
 const Star = () => (
   <i className="fa fa-star" aria-hidden="true" />
@@ -16,8 +15,8 @@ const StarHalf = () => (
   <i className="fa fa-star-half-o" aria-hidden="true" />
 );
 
-const Ratings = ({ note, on }) => (
-  <div styleName="Ratings">
+const Ratings = ({ note, on, color }) => (
+  <div style={{ color }}>
     {new Array(on).fill(null).map((_, index) => {
       const next = index + 1;
 
@@ -31,6 +30,11 @@ const Ratings = ({ note, on }) => (
 Ratings.propTypes = {
   note: PropTypes.number.isRequired,
   on: PropTypes.number.isRequired,
+  color: PropTypes.string,
+};
+
+Ratings.defaultProps = {
+  color: '#ff9501',
 };
 
 export default Ratings;

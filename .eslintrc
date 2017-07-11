@@ -34,6 +34,7 @@
     "max-len": ["error", 120],
     "new-cap": 0,
     "no-console": 0,
+    "no-nested-ternary": 0,
     "no-shadow": 0,
     "no-underscore-dangle": ["error", { "allow": ["_highlightResult"] }],
     "no-use-before-define": ["error", { "functions": false, "classes": true }],

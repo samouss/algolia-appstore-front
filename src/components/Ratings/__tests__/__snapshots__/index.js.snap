@@ -2,7 +2,11 @@
 
 exports[`<Ratings /> expect to render note 0 1`] = `
 <div
-  styleName="Ratings"
+  style={
+    Object {
+      "color": "#ff9501",
+    }
+  }
 >
   <StarEmpty />
   <StarEmpty />
@@ -14,7 +18,11 @@ exports[`<Ratings /> expect to render note 0 1`] = `
 
 exports[`<Ratings /> expect to render note 3 1`] = `
 <div
-  styleName="Ratings"
+  style={
+    Object {
+      "color": "#ff9501",
+    }
+  }
 >
   <Star />
   <Star />
@@ -26,7 +34,11 @@ exports[`<Ratings /> expect to render note 3 1`] = `
 
 exports[`<Ratings /> expect to render note 3.5 1`] = `
 <div
-  styleName="Ratings"
+  style={
+    Object {
+      "color": "#ff9501",
+    }
+  }
 >
   <Star />
   <Star />
@@ -38,7 +50,11 @@ exports[`<Ratings /> expect to render note 3.5 1`] = `
 
 exports[`<Ratings /> expect to render note 5 1`] = `
 <div
-  styleName="Ratings"
+  style={
+    Object {
+      "color": "#ff9501",
+    }
+  }
 >
   <Star />
   <Star />
@@ -50,13 +66,33 @@ exports[`<Ratings /> expect to render note 5 1`] = `
 
 exports[`<Ratings /> expect to render note 5 on 10 1`] = `
 <div
-  styleName="Ratings"
+  style={
+    Object {
+      "color": "#ff9501",
+    }
+  }
 >
   <Star />
   <Star />
   <Star />
   <Star />
   <Star />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+</div>
+`;
+
+exports[`<Ratings /> expect to render with custom color 1`] = `
+<div
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+>
   <StarEmpty />
   <StarEmpty />
   <StarEmpty />

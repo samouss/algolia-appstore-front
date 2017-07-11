@@ -82,4 +82,19 @@ describe('<Ratings />', () => {
 
     expect(component).toMatchSnapshot();
   });
+
+  it('expect to render with custom color', () => {
+    const props = {
+      ...defaultProps,
+      color: 'red',
+    };
+
+    const component = shallow(
+      <Ratings
+        {...props}
+      />,
+    );
+
+    expect(component).toMatchSnapshot();
+  });
 });
