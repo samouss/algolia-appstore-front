@@ -10,6 +10,7 @@ exports[`algolia <Provider /> expect to render 1`] = `
   nbPages={0}
   onNextPage={[Function]}
   page={1}
+  processingTimeMS={0}
 >
   <div>
     Content

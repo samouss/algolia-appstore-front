@@ -211,6 +211,7 @@ describe('algolia', () => {
           nbHits: 1250,
           nbPages: 20,
           page: 5,
+          processingTimeMS: 5,
         };
 
         const expectation = {
@@ -221,6 +222,7 @@ describe('algolia', () => {
           nbHits: 1250,
           nbPages: 20,
           page: 6,
+          processingTimeMS: 5,
           isEndReached: false,
           isInitialLoad: false,
         };

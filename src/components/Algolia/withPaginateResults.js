@@ -15,6 +15,7 @@ const withPaginateResults = ({
         nbHits: 0,
         nbPages: 0,
         page: 1,
+        processingTimeMS: 0,
         isEndReached: false,
         isInitialLoad: true,
       };
@@ -63,6 +64,7 @@ const withPaginateResults = ({
         nbHits: content.nbHits,
         nbPages: content.nbPages,
         page: content.page + 1,
+        processingTimeMS: content.processingTimeMS,
         isInitialLoad: false,
       }));
     }
