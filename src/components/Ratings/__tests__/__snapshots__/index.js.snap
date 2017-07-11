@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Ratings /> expect to render note 0 1`] = `
+<div
+  styleName="Ratings"
+>
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+</div>
+`;
+
+exports[`<Ratings /> expect to render note 3 1`] = `
+<div
+  styleName="Ratings"
+>
+  <Star />
+  <Star />
+  <Star />
+  <StarEmpty />
+  <StarEmpty />
+</div>
+`;
+
+exports[`<Ratings /> expect to render note 3.5 1`] = `
+<div
+  styleName="Ratings"
+>
+  <Star />
+  <Star />
+  <Star />
+  <StarHalf />
+  <StarEmpty />
+</div>
+`;
+
+exports[`<Ratings /> expect to render note 5 1`] = `
+<div
+  styleName="Ratings"
+>
+  <Star />
+  <Star />
+  <Star />
+  <Star />
+  <Star />
+</div>
+`;
+
+exports[`<Ratings /> expect to render note 5 on 10 1`] = `
+<div
+  styleName="Ratings"
+>
+  <Star />
+  <Star />
+  <Star />
+  <Star />
+  <Star />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+  <StarEmpty />
+</div>
+`;
