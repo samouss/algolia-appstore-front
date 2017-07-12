@@ -1,6 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Search /> expect to render 1`] = `
+<TextInput
+  onChange={[Function]}
+  placeholder="Angry Birds, Cut the Rope, Pinterest..."
+  value="This is a query"
+/>
+`;
+
+exports[`<Search /> withQuery expect to render 1`] = `
 <Search
   onChange={[Function]}
   query=""
