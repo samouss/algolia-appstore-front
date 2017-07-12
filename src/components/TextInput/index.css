@@ -11,10 +11,13 @@
   font-weight: 300;
   width: 100%;
   border-radius: 0;
+  transition: border-color 0.25s;
 
   &:focus {
     outline: none;
+    border-color: #0080ff;
   }
+
   &::placeholder {
     opacity: 1;
     color: #b9b9b9;
