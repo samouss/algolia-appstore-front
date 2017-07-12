@@ -3,7 +3,7 @@ import { Provider } from 'components/Algolia';
 import Layout from 'components/Layout';
 import Filters from 'components/Filters';
 import Search from 'containers/Search';
-import PaginateAppList from 'containers/PaginateAppList';
+import InfiniteAppList from 'containers/InfiniteAppList';
 
 const appId = 'RTMJH2ID8J';
 const apiKey = 'f8dac63a6dc38d8bd5893dad8969d819';
@@ -20,7 +20,7 @@ const App = () => (
         <Search />
       </Filters>
 
-      <PaginateAppList />
+      <InfiniteAppList />
     </Layout>
   </Provider>
 );

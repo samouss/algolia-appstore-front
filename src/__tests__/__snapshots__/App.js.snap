@@ -10,7 +10,7 @@ exports[`<App> expect to render 1`] = `
     <Filters>
       <withQuery(Search) />
     </Filters>
-    <withPaginateResults(AppList) />
+    <withInfiniteHits(AppList) />
   </Layout>
 </Provider>
 `;
