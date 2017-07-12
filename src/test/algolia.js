@@ -2,6 +2,7 @@ export const createMockAlgoliaClient = () => ({});
 
 export const createMockAlgoliaHelper = () => ({
   // Configuration
+  getIndex: jest.fn(() => 'index_name'),
   setIndex: jest.fn().mockReturnThis(),
   setQuery: jest.fn().mockReturnThis(),
   setQueryParameter: jest.fn().mockReturnThis(),
