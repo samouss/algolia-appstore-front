@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoryFilter /> expect to render 1`] = `
+<CategoryList
+  facetValues={Array []}
+  onChange={[Function]}
+/>
+`;
