@@ -5,6 +5,6 @@ export const highlightPostTag = '__algolia__highlight__post__tag__';
 
 export const escapeAndReplaceTag = value => {
   return escape(value)
-    .replace(highlightPreTag, '<em>')
-    .replace(highlightPostTag, '</em>');
+    .replace(new RegExp(highlightPreTag, 'g'), '<em>')
+    .replace(new RegExp(highlightPostTag, 'g'), '</em>');
 };
