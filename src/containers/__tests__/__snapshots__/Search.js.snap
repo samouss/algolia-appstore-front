@@ -2,6 +2,7 @@
 
 exports[`<Search /> expect to render 1`] = `
 <TextInput
+  enableClearButton={true}
   onChange={[Function]}
   placeholder="Angry Birds, Cut the Rope, Pinterest..."
   value="This is a query"

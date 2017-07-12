@@ -1,4 +1,8 @@
 .TextInput {
+  position: relative;
+}
+
+.TextInput__Input {
   -webkit-appearance: none;
   border: 1px solid #f2f2f2;
   padding: 8px 10px;
@@ -18,6 +22,37 @@
 
   @media (--tablet) {
     padding: 10px;
+    font-size: 1.3rem;
+  }
+}
+
+.TextInput__Input--clear {
+  padding-right: 30px;
+
+  @media (--tablet) {
+    padding-right: 50px;
+  }
+}
+
+
+.TextInput__Clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  color: #b9b9b9;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (--tablet) {
+    width: 50px;
     font-size: 1.3rem;
   }
 }
