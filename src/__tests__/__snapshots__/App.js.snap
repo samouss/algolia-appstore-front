@@ -7,6 +7,9 @@ exports[`<App> expect to render 1`] = `
   indexName="apps"
 >
   <Layout>
+    <Filters>
+      <withQuery(Search) />
+    </Filters>
     <withPaginateResults(AppList) />
   </Layout>
 </Provider>
