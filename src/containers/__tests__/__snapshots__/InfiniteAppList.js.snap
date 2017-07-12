@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PaginateAppList /> expect to render 1`] = `
+exports[`<InfiniteAppList /> expect to render 1`] = `
 <AppList
   hits={Array []}
   isEndReached={false}
@@ -9,7 +9,7 @@ exports[`<PaginateAppList /> expect to render 1`] = `
   nbHits={0}
   nbPages={0}
   onNextPage={[Function]}
-  page={1}
+  page={0}
   processingTimeMS={0}
 />
 `;

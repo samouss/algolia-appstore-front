@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
-import PaginateAppList from '../PaginateAppList';
+import InfiniteAppList from '../InfiniteAppList';
 
-describe('<PaginateAppList />', () => {
+describe('<InfiniteAppList />', () => {
   it('expect to render', () => {
     const context = {
       algoliaClient: createMockAlgoliaClient(),
@@ -11,7 +11,7 @@ describe('<PaginateAppList />', () => {
     };
 
     const component = shallow(
-      <PaginateAppList />,
+      <InfiniteAppList />,
       { context },
     );
 
