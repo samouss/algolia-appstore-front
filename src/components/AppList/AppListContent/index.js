@@ -17,7 +17,7 @@ const AppListContent = ({
     isEndReached={isEndReached}
     isAttachOnWindow
     onReachThreshold={onNextPage}
-    threshold={680}
+    threshold={1700}
   >
     {hits.map(hit => (
       <AppItem

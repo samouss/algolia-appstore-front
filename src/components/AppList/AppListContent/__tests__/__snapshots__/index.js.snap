@@ -10,7 +10,7 @@ exports[`<AppListContent /> expect to render 1`] = `
   isLoading={false}
   onReachThreshold={[Function]}
   styleName="AppListContent"
-  threshold={680}
+  threshold={1700}
 >
   <AppItem
     _highlightResult={
