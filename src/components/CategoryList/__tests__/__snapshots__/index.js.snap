@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoryList /> expect to render 1`] = `
+<ul
+  styleName="CategoryList"
+>
+  <CategoryItem
+    count={1234}
+    isRefined={true}
+    name="Games"
+    onChange={[Function]}
+  />
+  <CategoryItem
+    count={5678}
+    isRefined={false}
+    name="Social"
+    onChange={[Function]}
+  />
+</ul>
+`;
