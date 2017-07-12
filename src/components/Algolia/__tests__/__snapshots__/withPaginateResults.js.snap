@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`algolia <Provider /> expect to render 1`] = `
+exports[`algolia withPaginateResults expect to render 1`] = `
 <Component
   className="sample-class-name"
   hits={Array []}
@@ -10,7 +10,7 @@ exports[`algolia <Provider /> expect to render 1`] = `
   nbHits={0}
   nbPages={0}
   onNextPage={[Function]}
-  page={1}
+  page={0}
   processingTimeMS={0}
 >
   <div>

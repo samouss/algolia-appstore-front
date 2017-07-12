@@ -14,7 +14,7 @@ const withPaginateResults = ({
         hits: [],
         nbHits: 0,
         nbPages: 0,
-        page: 1,
+        page: 0,
         processingTimeMS: 0,
         isLoading: true,
         isInitialLoad: true,
@@ -41,17 +41,13 @@ const withPaginateResults = ({
     }
 
     onNextPage() {
-      const { page, nbPages, isEndReached } = this.state;
+      const { isLoading, isEndReached } = this.state;
 
-      if (isEndReached) {
+      if (isLoading || isEndReached) {
         return;
       }
 
-      const newPage = page + 1;
-      const isLastPage = newPage === nbPages;
-
       this.setState(() => ({
-        isEndReached: isLastPage,
         isLoading: true,
       }));
 
@@ -61,14 +57,17 @@ const withPaginateResults = ({
     }
 
     updateState(content) {
+      const isEndReached = content.page === content.nbPages - 1;
+
       this.setState(prevState => ({
         hits: prevState.hits.concat(content.hits),
         nbHits: content.nbHits,
         nbPages: content.nbPages,
-        page: content.page + 1,
+        page: content.page,
         processingTimeMS: content.processingTimeMS,
         isLoading: false,
         isInitialLoad: false,
+        isEndReached,
       }));
     }
 

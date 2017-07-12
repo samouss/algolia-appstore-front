@@ -5,7 +5,7 @@ import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
 import withPaginateResults from '../withPaginateResults';
 
 describe('algolia', () => {
-  describe('<Provider />', () => {
+  describe('withPaginateResults', () => {
     const createContext = () => ({
       algoliaHelper: createMockAlgoliaHelper(),
       algoliaClient: createMockAlgoliaClient(),
@@ -150,34 +150,7 @@ describe('algolia', () => {
         expect(context.algoliaHelper.search).toHaveBeenCalled();
       });
 
-      it('expect to call nextPage on last page and search', () => {
-        const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
-
-        const component = shallow(
-          <ApplyComponent>
-            <div>Content</div>
-          </ApplyComponent>,
-          { context },
-        );
-
-        component.setState({
-          nbPages: 5,
-          page: 4,
-        });
-
-        // @NOTE: simulate initial load
-        component.setState({ isLoading: false });
-
-        component.instance().onNextPage();
-
-        expect(component.state().isLoading).toBe(true);
-        expect(component.state().isEndReached).toBe(true);
-        expect(context.algoliaHelper.nextPage).toHaveBeenCalled();
-        expect(context.algoliaHelper.search).toHaveBeenCalled();
-      });
-
-      it('expect to not call nextPage and search', () => {
+      it('expect to not call nextPage and search if loading', () => {
         const context = createContext();
         const ApplyComponent = withPaginateResults()(Component);
 
@@ -192,12 +165,32 @@ describe('algolia', () => {
           isEndReached: true,
         });
 
-        // @NOTE: simulate initial load
-        component.setState({ isLoading: false });
+        component.setState({ isLoading: true });
 
         component.instance().onNextPage();
 
-        expect(component.state().isLoading).toBe(false);
+        expect(context.algoliaHelper.nextPage).not.toHaveBeenCalled();
+        expect(context.algoliaHelper.search).not.toHaveBeenCalled();
+      });
+
+      it('expect to not call nextPage and search if end reached', () => {
+        const context = createContext();
+        const ApplyComponent = withPaginateResults()(Component);
+
+        const component = shallow(
+          <ApplyComponent>
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        component.setState({
+          isEndReached: true,
+          isLoading: false,
+        });
+
+        component.instance().onNextPage();
+
         expect(context.algoliaHelper.nextPage).not.toHaveBeenCalled();
         expect(context.algoliaHelper.search).not.toHaveBeenCalled();
       });
@@ -233,7 +226,7 @@ describe('algolia', () => {
           ],
           nbHits: 1250,
           nbPages: 20,
-          page: 6,
+          page: 5,
           processingTimeMS: 5,
           isLoading: false,
           isInitialLoad: false,
