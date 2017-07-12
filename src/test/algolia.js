@@ -2,6 +2,7 @@ export const createMockAlgoliaClient = () => ({});
 
 export const createMockAlgoliaHelper = () => ({
   // Configuration
+  setQuery: jest.fn().mockReturnThis(),
   setQueryParameter: jest.fn().mockReturnThis(),
 
   // Pagination
