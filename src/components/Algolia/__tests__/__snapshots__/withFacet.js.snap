@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`algolia withFacet expect to render 1`] = `
+<Component
+  className="sample-class-name"
+  facetValues={Array []}
+>
+  <div>
+    Content
+  </div>
+</Component>
+`;
