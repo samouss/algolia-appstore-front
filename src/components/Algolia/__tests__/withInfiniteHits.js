@@ -45,6 +45,15 @@ describe('algolia', () => {
       expect(component).toMatchSnapshot();
     });
 
+    it('expect to have correct displayName', () => {
+      const ApplyComponent = withInfiniteHits()(Component);
+
+      const expectation = 'withInfiniteHits(Component)';
+      const actual = ApplyComponent.displayName;
+
+      expect(actual).toBe(expectation);
+    });
+
     describe('componentDidMount', () => {
       it('expect to call setQueryParameter with default parameter', () => {
         const context = createContext();

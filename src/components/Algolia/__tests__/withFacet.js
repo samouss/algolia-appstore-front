@@ -53,6 +53,19 @@ describe('algolia', () => {
       expect(component).toMatchSnapshot();
     });
 
+    it('expect to have correct displayName', () => {
+      const parameters = {
+        ...defaultParameters,
+      };
+
+      const ApplyComponent = withFacet(parameters)(Component);
+
+      const expectation = 'withFacet(Component)';
+      const actual = ApplyComponent.displayName;
+
+      expect(actual).toBe(expectation);
+    });
+
     describe('componentDidMount', () => {
       it('expect to subscribe to result event', () => {
         const context = createContext();
