@@ -1,11 +1,12 @@
 .TextInput {
   -webkit-appearance: none;
   border: 1px solid #f2f2f2;
-  padding: 10px;
+  padding: 8px 10px;
   font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 300;
   width: 100%;
+  border-radius: 0;
 
   &:focus {
     outline: none;
@@ -13,5 +14,10 @@
   &::placeholder {
     opacity: 1;
     color: #b9b9b9;
+  }
+
+  @media (--tablet) {
+    padding: 10px;
+    font-size: 1.3rem;
   }
 }
