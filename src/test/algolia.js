@@ -5,6 +5,10 @@ export const createMockAlgoliaHelper = () => ({
   setQuery: jest.fn().mockReturnThis(),
   setQueryParameter: jest.fn().mockReturnThis(),
 
+  // Faceting
+  addDisjunctiveFacetRefinement: jest.fn().mockReturnThis(),
+  removeDisjunctiveFacetRefinement: jest.fn().mockReturnThis(),
+
   // Pagination
   nextPage: jest.fn().mockReturnThis(),
 
