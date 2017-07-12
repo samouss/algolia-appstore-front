@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoryItem /> expect to render 1`] = `
+<li>
+  <RadioInput
+    checked={false}
+    customActiveClassName="CategoryItem__Label--active"
+    customClassName="CategoryItem__Label"
+    name="category"
+    onChange={[Function]}
+    value="Games"
+  >
+    Games
+    <span
+      styleName="CategoryItem__Stat"
+    >
+      (
+      1235
+      )
+    </span>
+  </RadioInput>
+</li>
+`;
+
+exports[`<CategoryItem /> expect to render when refined 1`] = `
+<li>
+  <RadioInput
+    checked={true}
+    customActiveClassName="CategoryItem__Label--active"
+    customClassName="CategoryItem__Label"
+    name="category"
+    onChange={[Function]}
+    value="Games"
+  >
+    Games
+    <span
+      styleName="CategoryItem__Stat"
+    >
+      (
+      1235
+      )
+    </span>
+  </RadioInput>
+</li>
+`;

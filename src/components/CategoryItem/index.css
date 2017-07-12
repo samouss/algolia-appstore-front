@@ -1,0 +1,18 @@
+.CategoryItem__Label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover > span {
+    color: #0080ff;
+  }
+}
+
+.CategoryItem__Label--active > span {
+  color: #0080ff;
+}
+
+.CategoryItem__Stat {
+  color: #b9b9b9;
+  font-size: 0.8rem;
+}
