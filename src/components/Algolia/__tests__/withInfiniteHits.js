@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
-import withPaginateResults from '../withPaginateResults';
+import withInfiniteHits from '../withInfiniteHits';
 
 describe('algolia', () => {
-  describe('withPaginateResults', () => {
+  describe('withInfiniteHits', () => {
     const createContext = () => ({
       algoliaHelper: createMockAlgoliaHelper(),
       algoliaClient: createMockAlgoliaClient(),
@@ -31,7 +31,7 @@ describe('algolia', () => {
         className: 'sample-class-name',
       };
 
-      const ApplyComponent = withPaginateResults()(Component);
+      const ApplyComponent = withInfiniteHits()(Component);
 
       const component = shallow(
         <ApplyComponent
@@ -48,7 +48,7 @@ describe('algolia', () => {
     describe('componentDidMount', () => {
       it('expect to call setQueryParameter with default parameter', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
+        const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
           <ApplyComponent>
@@ -67,7 +67,7 @@ describe('algolia', () => {
 
       it('expect to call setQueryParameter with given parameter', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults({
+        const ApplyComponent = withInfiniteHits({
           hitsPerPage: 50,
         })(Component);
 
@@ -88,7 +88,7 @@ describe('algolia', () => {
 
       it('expect to subscribe to result event', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
+        const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
           <ApplyComponent>
@@ -109,7 +109,7 @@ describe('algolia', () => {
     describe('componentWillUnmount', () => {
       it('expect to unsubscribe to result event', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
+        const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
           <ApplyComponent>
@@ -130,7 +130,7 @@ describe('algolia', () => {
     describe('onNextPage', () => {
       it('expect to call nextPage and search', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
+        const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
           <ApplyComponent>
@@ -152,7 +152,7 @@ describe('algolia', () => {
 
       it('expect to not call nextPage and search if loading', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
+        const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
           <ApplyComponent>
@@ -175,7 +175,7 @@ describe('algolia', () => {
 
       it('expect to not call nextPage and search if end reached', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
+        const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
           <ApplyComponent>
@@ -197,9 +197,9 @@ describe('algolia', () => {
     });
 
     describe('updateState', () => {
-      it('expect to update the state from aloglia result', () => {
+      it('expect to update with concatenate hits', () => {
         const context = createContext();
-        const ApplyComponent = withPaginateResults()(Component);
+        const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
           <ApplyComponent>
@@ -208,7 +208,7 @@ describe('algolia', () => {
           { context },
         );
 
-        const content = {
+        const prevState = {
           hits: [
             { objectID: '123' },
             { objectID: '456' },
@@ -219,7 +219,52 @@ describe('algolia', () => {
           processingTimeMS: 5,
         };
 
+        const content = {
+          hits: [
+            { objectID: '789' },
+            { objectID: '101' },
+          ],
+          nbHits: 1250,
+          nbPages: 20,
+          page: 6,
+          processingTimeMS: 5,
+        };
+
         const expectation = {
+          hits: [
+            { objectID: '123' },
+            { objectID: '456' },
+            { objectID: '789' },
+            { objectID: '101' },
+          ],
+          nbHits: 1250,
+          nbPages: 20,
+          page: 6,
+          processingTimeMS: 5,
+          isLoading: false,
+          isInitialLoad: false,
+          isEndReached: false,
+        };
+
+        component.setState(prevState);
+
+        component.instance().updateState(content);
+
+        expect(component.state()).toEqual(expectation);
+      });
+
+      it('expect to update with hits', () => {
+        const context = createContext();
+        const ApplyComponent = withInfiniteHits()(Component);
+
+        const component = shallow(
+          <ApplyComponent>
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        const prevState = {
           hits: [
             { objectID: '123' },
             { objectID: '456' },
@@ -228,10 +273,34 @@ describe('algolia', () => {
           nbPages: 20,
           page: 5,
           processingTimeMS: 5,
+        };
+
+        const content = {
+          hits: [
+            { objectID: '789' },
+            { objectID: '101' },
+          ],
+          nbHits: 1250,
+          nbPages: 20,
+          page: 0,
+          processingTimeMS: 5,
+        };
+
+        const expectation = {
+          hits: [
+            { objectID: '789' },
+            { objectID: '101' },
+          ],
+          nbHits: 1250,
+          nbPages: 20,
+          page: 0,
+          processingTimeMS: 5,
           isLoading: false,
           isInitialLoad: false,
           isEndReached: false,
         };
+
+        component.setState(prevState);
 
         component.instance().updateState(content);
 

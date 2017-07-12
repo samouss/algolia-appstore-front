@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
 import { ContextTypes } from './Provider';
 
-const withPaginateResults = ({
+const withInfiniteHits = ({
   hitsPerPage = 25,
 } = {}) => WrappedComponent => {
-  class WithPaginateResults extends Component {
+  class WithInfiniteHits extends Component {
 
     constructor(props) {
       super(props);
@@ -57,10 +57,12 @@ const withPaginateResults = ({
     }
 
     updateState(content) {
+      const isResetResults = content.page === 0;
       const isEndReached = content.page === content.nbPages - 1;
 
       this.setState(prevState => ({
-        hits: prevState.hits.concat(content.hits),
+        hits: isResetResults ? content.hits
+          : prevState.hits.concat(content.hits),
         nbHits: content.nbHits,
         nbPages: content.nbPages,
         page: content.page,
@@ -83,14 +85,14 @@ const withPaginateResults = ({
 
   }
 
-  WithPaginateResults.displayName = getDisplayName(
+  WithInfiniteHits.displayName = getDisplayName(
     WrappedComponent,
-    'withPaginateResults',
+    'withInfiniteHits',
   );
 
-  WithPaginateResults.contextTypes = ContextTypes;
+  WithInfiniteHits.contextTypes = ContextTypes;
 
-  return WithPaginateResults;
+  return WithInfiniteHits;
 };
 
-export default withPaginateResults;
+export default withInfiniteHits;
