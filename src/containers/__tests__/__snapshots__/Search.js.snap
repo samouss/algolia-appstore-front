@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> expect to render 1`] = `
+<Search
+  onChange={[Function]}
+  query=""
+/>
+`;
