@@ -2,11 +2,11 @@
 
 exports[`<CategoryItem /> expect to render 1`] = `
 <li>
-  <RadioInput
+  <CheckboxInput
     checked={false}
     customActiveClassName="CategoryItem__Label--active"
     customClassName="CategoryItem__Label"
-    name="category"
+    id="category-Games"
     onChange={[Function]}
     value="Games"
   >
@@ -18,17 +18,17 @@ exports[`<CategoryItem /> expect to render 1`] = `
       1235
       )
     </span>
-  </RadioInput>
+  </CheckboxInput>
 </li>
 `;
 
 exports[`<CategoryItem /> expect to render when refined 1`] = `
 <li>
-  <RadioInput
+  <CheckboxInput
     checked={true}
     customActiveClassName="CategoryItem__Label--active"
     customClassName="CategoryItem__Label"
-    name="category"
+    id="category-Games"
     onChange={[Function]}
     value="Games"
   >
@@ -40,6 +40,6 @@ exports[`<CategoryItem /> expect to render when refined 1`] = `
       1235
       )
     </span>
-  </RadioInput>
+  </CheckboxInput>
 </li>
 `;

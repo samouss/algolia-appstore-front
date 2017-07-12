@@ -52,7 +52,7 @@ describe('<CategoryItem />', () => {
     );
 
     component
-      .find('RadioInput')
+      .find('CheckboxInput')
       .simulate('change');
 
     expect(props.onChange).toHaveBeenCalled();

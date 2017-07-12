@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RadioInput } from 'components/Input';
+import { CheckboxInput } from 'components/Input';
 import style from './index.css';
 
 export const FacetValuePropTypes = {
@@ -12,17 +12,20 @@ export const FacetValuePropTypes = {
 
 const CategoryItem = ({ name, count, isRefined, onChange }) => (
   <li>
-    <RadioInput
+    <CheckboxInput
       customClassName={style.CategoryItem__Label}
       customActiveClassName={style['CategoryItem__Label--active']}
-      name="category"
+      id={`category-${name}`}
       value={name}
       checked={isRefined}
-      onChange={onChange}
+      onChange={() => onChange(
+        name,
+        isRefined,
+      )}
     >
       {name}
       <span styleName="CategoryItem__Stat">({count})</span>
-    </RadioInput>
+    </CheckboxInput>
   </li>
 );
 

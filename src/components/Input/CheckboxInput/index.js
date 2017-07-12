@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './index.css';
 
-const RadioInput = ({
-  name,
+const CheckboxInput = ({
+  id,
   value,
   checked,
   onChange,
@@ -12,22 +12,22 @@ const RadioInput = ({
   customClassName,
   customActiveClassName,
 }) => (
-  <div styleName="RadioInput">
+  <div styleName="CheckboxInput">
     <input
-      styleName="RadioInput__Input"
-      id={`${name}-${value}`}
-      name={name}
-      type="radio"
+      styleName="CheckboxInput__Input"
+      id={id}
+      value={value}
+      type="checkbox"
       onChange={onChange}
       checked={checked}
     />
     <label
-      htmlFor={`${name}-${value}`}
+      htmlFor={id}
       className={cx(customClassName, {
         [customActiveClassName]: checked,
       })}
-      styleName={cx('RadioInput__Label', {
-        'RadioInput__Label--active': checked,
+      styleName={cx('CheckboxInput__Label', {
+        'CheckboxInput__Label--active': checked,
       })}
     >
       {children}
@@ -35,8 +35,8 @@ const RadioInput = ({
   </div>
 );
 
-RadioInput.propTypes = {
-  name: PropTypes.string.isRequired,
+CheckboxInput.propTypes = {
+  id: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -45,9 +45,9 @@ RadioInput.propTypes = {
   customActiveClassName: PropTypes.string,
 };
 
-RadioInput.defaultProps = {
+CheckboxInput.defaultProps = {
   customClassName: '',
   customActiveClassName: '',
 };
 
-export default RadioInput;
+export default CheckboxInput;

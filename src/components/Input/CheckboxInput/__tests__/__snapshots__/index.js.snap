@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxInput /> expect to render 1`] = `
+<div
+  styleName="CheckboxInput"
+>
+  <input
+    checked={false}
+    id="category-games"
+    onChange={[Function]}
+    styleName="CheckboxInput__Input"
+    type="checkbox"
+    value="games"
+  />
+  <label
+    className=""
+    htmlFor="category-games"
+    styleName="CheckboxInput__Label"
+  >
+    label
+  </label>
+</div>
+`;
+
+exports[`<CheckboxInput /> expect to render when checked 1`] = `
+<div
+  styleName="CheckboxInput"
+>
+  <input
+    checked={true}
+    id="category-games"
+    onChange={[Function]}
+    styleName="CheckboxInput__Input"
+    type="checkbox"
+    value="games"
+  />
+  <label
+    className=""
+    htmlFor="category-games"
+    styleName="CheckboxInput__Label CheckboxInput__Label--active"
+  >
+    label
+  </label>
+</div>
+`;
+
+exports[`<CheckboxInput /> expect to render with customActiveClassName 1`] = `
+<div
+  styleName="CheckboxInput"
+>
+  <input
+    checked={true}
+    id="category-games"
+    onChange={[Function]}
+    styleName="CheckboxInput__Input"
+    type="checkbox"
+    value="games"
+  />
+  <label
+    className="custom-active-class-name"
+    htmlFor="category-games"
+    styleName="CheckboxInput__Label CheckboxInput__Label--active"
+  >
+    label
+  </label>
+</div>
+`;
+
+exports[`<CheckboxInput /> expect to render with customClassName 1`] = `
+<div
+  styleName="CheckboxInput"
+>
+  <input
+    checked={false}
+    id="category-games"
+    onChange={[Function]}
+    styleName="CheckboxInput__Input"
+    type="checkbox"
+    value="games"
+  />
+  <label
+    className="custom-class-name"
+    htmlFor="category-games"
+    styleName="CheckboxInput__Label"
+  >
+    label
+  </label>
+</div>
+`;

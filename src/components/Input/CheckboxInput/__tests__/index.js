@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RadioInput from '../index';
+import CheckboxInput from '../index';
 
-describe('<RadioInput />', () => {
+describe('<CheckboxInput />', () => {
   const defaultProps = {
+    id: 'category-games',
     name: 'category',
     value: 'games',
     checked: false,
@@ -16,11 +17,11 @@ describe('<RadioInput />', () => {
     };
 
     const component = shallow(
-      <RadioInput
+      <CheckboxInput
         {...props}
       >
         label
-      </RadioInput>,
+      </CheckboxInput>,
     );
 
     expect(component).toMatchSnapshot();
@@ -33,11 +34,11 @@ describe('<RadioInput />', () => {
     };
 
     const component = shallow(
-      <RadioInput
+      <CheckboxInput
         {...props}
       >
         label
-      </RadioInput>,
+      </CheckboxInput>,
     );
 
     expect(component).toMatchSnapshot();
@@ -50,11 +51,11 @@ describe('<RadioInput />', () => {
     };
 
     const component = shallow(
-      <RadioInput
+      <CheckboxInput
         {...props}
       >
         label
-      </RadioInput>,
+      </CheckboxInput>,
     );
 
     expect(component).toMatchSnapshot();
@@ -68,11 +69,11 @@ describe('<RadioInput />', () => {
     };
 
     const component = shallow(
-      <RadioInput
+      <CheckboxInput
         {...props}
       >
         label
-      </RadioInput>,
+      </CheckboxInput>,
     );
 
     expect(component).toMatchSnapshot();
@@ -85,11 +86,11 @@ describe('<RadioInput />', () => {
     };
 
     const component = shallow(
-      <RadioInput
+      <CheckboxInput
         {...props}
       >
         label
-      </RadioInput>,
+      </CheckboxInput>,
     );
 
     component
