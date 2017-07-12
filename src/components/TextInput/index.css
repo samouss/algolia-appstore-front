@@ -5,6 +5,7 @@
   font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1.3rem;
   font-weight: 300;
+  width: 100%;
 
   &:focus {
     outline: none;
