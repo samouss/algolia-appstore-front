@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`algolia withIndex expect to render 1`] = `
+<Component
+  className="sample-class-name"
+  indexName="index_name"
+  onChange={[Function]}
+/>
+`;
