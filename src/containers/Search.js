@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withQuery } from 'components/Algolia';
-import TextInput from 'components/TextInput';
+import { TextInput } from 'components/Input';
 
 export const Search = ({ query, ...props }) => (
   <TextInput
