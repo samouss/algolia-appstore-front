@@ -15,7 +15,7 @@ class Provider extends Component {
     super(props);
 
     this.client = algoliasearch(props.appId, props.apiKey);
-    this.helper = algoliasearchHelper(this.client, props.indexName);
+    this.helper = algoliasearchHelper(this.client, props.indexName, props.options);
   }
 
   getChildContext() {
@@ -43,6 +43,12 @@ Provider.propTypes = {
   apiKey: PropTypes.string.isRequired,
   indexName: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  options: PropTypes.object,
+};
+
+Provider.defaultProps = {
+  options: {},
 };
 
 Provider.childContextTypes = ContextTypes;

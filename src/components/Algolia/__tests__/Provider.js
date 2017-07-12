@@ -40,6 +40,9 @@ describe('algolia', () => {
     it('expect to instanciate client and helper', () => {
       const props = {
         ...defaultProps,
+        options: {
+          facets: ['category'],
+        },
       };
 
       shallow(
@@ -58,6 +61,7 @@ describe('algolia', () => {
       expect(algoliasearchHelper).toHaveBeenCalledWith(
         { name: 'algolia-client' },
         props.indexName,
+        { facets: ['category'] },
       );
     });
 
