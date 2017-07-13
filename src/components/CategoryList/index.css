@@ -1,11 +1,4 @@
 .CategoryList {
-  background-color: #ffffff;
-  border: 1px solid #f2f2f2;
+  width: 100%;
   min-height: 272px;
-  width: 210px;
-
-  margin-left: 1vh;
-  &:first-child {
-    margin-left: 0;
-  }
 }
