@@ -1,15 +1,12 @@
 .CategoryItem__Label {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
   &:hover > span {
     color: #0080ff;
   }
-}
-
-.CategoryItem__Label--active > span {
-  color: #0080ff;
 }
 
 .CategoryItem__Stat {
