@@ -1,12 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RatingSort /> WithIndex expect to render 1`] = `
-<RatingSort
-  indexName="sample"
-  onChange={[Function]}
-/>
-`;
-
 exports[`<RatingSort /> expect to render 1`] = `
 <SortBy>
   <RadioInput
@@ -33,13 +26,6 @@ exports[`<RatingSort /> expect to render 1`] = `
 `;
 
 exports[`<RatingSort /> withIndex expect to render 1`] = `
-<RatingSort
-  indexName="sample"
-  onChange={[Function]}
-/>
-`;
-
-exports[`<RatingSort /> withQuery expect to render 1`] = `
 <RatingSort
   indexName="sample"
   onChange={[Function]}
