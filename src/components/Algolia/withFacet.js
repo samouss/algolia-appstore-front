@@ -5,6 +5,7 @@ import { ContextTypes } from './Provider';
 const withFacet = ({
   facet,
   maxFacetValues = 10,
+  getFacetValuesOptions = {},
 } = {}) => WrappedComponent => {
   if (!facet) {
     throw new Error('You must provide the facet parameter.');
@@ -33,9 +34,10 @@ const withFacet = ({
     }
 
     updateState(content) {
-      const facetValues = content.getFacetValues(facet, {
-        sortBy: ['count:desc'],
-      });
+      const facetValues = content.getFacetValues(
+        facet,
+        getFacetValuesOptions,
+      );
 
       const facetValuesUpToMaxNbValuesToDisplay = facetValues
         .filter(_ => _.count > 0)

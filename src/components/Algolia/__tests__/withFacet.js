@@ -119,11 +119,42 @@ describe('algolia', () => {
     });
 
     describe('updateState', () => {
-      it('expect to sort facet values by count desc', () => {
+      it('expect to sort facet values by default', () => {
         const context = createContext();
 
         const parameters = {
           ...defaultParameters,
+        };
+
+        const ApplyComponent = withFacet(parameters)(Component);
+
+        const component = shallow(
+          <ApplyComponent>
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        const content = {
+          getFacetValues: jest.fn(() => []),
+        };
+
+        component.instance().updateState(content);
+
+        expect(content.getFacetValues).toHaveBeenCalledWith(
+          parameters.facet,
+          {},
+        );
+      });
+
+      it('expect to sort facet values by given options', () => {
+        const context = createContext();
+
+        const parameters = {
+          ...defaultParameters,
+          getFacetValuesOptions: {
+            sortBy: ['count:desc'],
+          },
         };
 
         const ApplyComponent = withFacet(parameters)(Component);
