@@ -1,7 +1,0 @@
-.Ratings > i {
-  margin-right: 1px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-}
