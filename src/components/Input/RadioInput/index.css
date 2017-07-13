@@ -1,0 +1,46 @@
+.RadioInput {
+  position: relative;
+  overflow: hidden;
+}
+
+.RadioInput__Input {
+  position: absolute;
+  left: -99999px;
+
+  &:checked + .RadioInput__Label .RadioInput__Radio__Inner {
+    background-color: #0080ff;
+  }
+}
+
+.RadioInput__Label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10px;
+
+  &:hover {
+    cursor: pointer;
+    color: #0080ff;
+  }
+  &:hover > .RadioInput__Radio {
+    border-color: #0080ff;
+  }
+}
+
+.RadioInput__Radio {
+  display: flex;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  border: 1px solid;
+  margin-right: 8px;
+  margin-top: 1px;
+  justify-content: center;
+  align-items: center;
+}
+
+.RadioInput__Radio__Inner {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+}

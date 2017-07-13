@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxInput /> expect to render 1`] = `
+<div
+  styleName="RadioInput"
+>
+  <input
+    checked={false}
+    id="category-games"
+    name="category"
+    onChange={[Function]}
+    styleName="RadioInput__Input"
+    type="radio"
+    value="games"
+  />
+  <label
+    className=""
+    htmlFor="category-games"
+    styleName="RadioInput__Label"
+  >
+    <span
+      styleName="RadioInput__Radio"
+    >
+      <span
+        styleName="RadioInput__Radio__Inner"
+      />
+    </span>
+    label
+  </label>
+</div>
+`;
+
+exports[`<CheckboxInput /> expect to render when checked 1`] = `
+<div
+  styleName="RadioInput"
+>
+  <input
+    checked={true}
+    id="category-games"
+    name="category"
+    onChange={[Function]}
+    styleName="RadioInput__Input"
+    type="radio"
+    value="games"
+  />
+  <label
+    className=""
+    htmlFor="category-games"
+    styleName="RadioInput__Label"
+  >
+    <span
+      styleName="RadioInput__Radio"
+    >
+      <span
+        styleName="RadioInput__Radio__Inner"
+      />
+    </span>
+    label
+  </label>
+</div>
+`;
+
+exports[`<CheckboxInput /> expect to render with customClassName 1`] = `
+<div
+  styleName="RadioInput"
+>
+  <input
+    checked={false}
+    id="category-games"
+    name="category"
+    onChange={[Function]}
+    styleName="RadioInput__Input"
+    type="radio"
+    value="games"
+  />
+  <label
+    className="custom-class-name"
+    htmlFor="category-games"
+    styleName="RadioInput__Label"
+  >
+    <span
+      styleName="RadioInput__Radio"
+    >
+      <span
+        styleName="RadioInput__Radio__Inner"
+      />
+    </span>
+    label
+  </label>
+</div>
+`;
