@@ -12,6 +12,6 @@ exports[`<SearchFilter /> expect to render 1`] = `
 exports[`<SearchFilter /> withQuery expect to render 1`] = `
 <SearchFilter
   onChange={[Function]}
-  query=""
+  query="Hello"
 />
 `;

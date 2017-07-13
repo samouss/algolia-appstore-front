@@ -1,7 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
 import WithQuery, { SearchFilter } from '../SearchFilter';
+
+jest.mock('components/Algolia', () => ({
+  withQuery: jest.fn(Component => props => (
+    <Component
+      {...props}
+      query="Hello"
+      onChange={() => {}}
+    />
+  )),
+}));
 
 describe('<SearchFilter />', () => {
   const defaultProps = {
@@ -48,14 +57,8 @@ describe('<SearchFilter />', () => {
 
   describe('withQuery', () => {
     it('expect to render', () => {
-      const context = {
-        algoliaClient: createMockAlgoliaClient(),
-        algoliaHelper: createMockAlgoliaHelper(),
-      };
-
       const component = shallow(
         <WithQuery />,
-        { context },
       );
 
       expect(component).toMatchSnapshot();
