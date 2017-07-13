@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Thumbnail /> expect to render 1`] = `
-<img
-  alt="Image alt"
-  src="http://link.com"
+<div
   styleName="Thumbnail"
-  title="Image title"
-/>
+>
+  <img
+    alt="Image alt"
+    src="http://link.com"
+    title="Image title"
+  />
+</div>
 `;

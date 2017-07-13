@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import './index.css';
 
 const Thumbnail = ({ source, alt, ...props }) => (
-  <img
-    {...props}
-    src={source}
-    alt={alt}
-    styleName="Thumbnail"
-  />
+  <div styleName="Thumbnail">
+    <img
+      {...props}
+      src={source}
+      alt={alt}
+    />
+  </div>
 );
 
 Thumbnail.propTypes = {
