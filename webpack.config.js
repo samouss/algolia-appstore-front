@@ -25,7 +25,10 @@ module.exports = (options = {}) => {
 
   return {
     devtool: !isProduction ? 'eval' : 'source-map',
-    entry: `${__dirname}/src/index.js`,
+    entry: [
+      `${__dirname}/src/polyfill.js`,
+      `${__dirname}/src/index.js`,
+    ],
     output: {
       path: `${__dirname}/dist`,
       publicPath: '/',
