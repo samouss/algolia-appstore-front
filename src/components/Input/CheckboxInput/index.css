@@ -6,6 +6,14 @@
 .CheckboxInput__Input {
   position: absolute;
   left: -99999px;
+
+  &:checked + .CheckboxInput__Label {
+    color: #0080ff;
+
+    &:hover {
+      text-decoration: line-through;
+    }
+  }
 }
 
 .CheckboxInput__Label {
@@ -15,13 +23,5 @@
   &:hover {
     cursor: pointer;
     color: #0080ff;
-  }
-}
-
-.CheckboxInput__Label--active {
-  color: #0080ff;
-
-  &:hover {
-    text-decoration: line-through;
   }
 }

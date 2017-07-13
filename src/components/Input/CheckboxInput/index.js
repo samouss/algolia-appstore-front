@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import './index.css';
 
 const CheckboxInput = ({
@@ -10,7 +9,6 @@ const CheckboxInput = ({
   onChange,
   children,
   customClassName,
-  customActiveClassName,
 }) => (
   <div styleName="CheckboxInput">
     <input
@@ -23,12 +21,8 @@ const CheckboxInput = ({
     />
     <label
       htmlFor={id}
-      className={cx(customClassName, {
-        [customActiveClassName]: checked,
-      })}
-      styleName={cx('CheckboxInput__Label', {
-        'CheckboxInput__Label--active': checked,
-      })}
+      className={customClassName}
+      styleName="CheckboxInput__Label"
     >
       {children}
     </label>
@@ -42,12 +36,10 @@ CheckboxInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   customClassName: PropTypes.string,
-  customActiveClassName: PropTypes.string,
 };
 
 CheckboxInput.defaultProps = {
   customClassName: '',
-  customActiveClassName: '',
 };
 
 export default CheckboxInput;

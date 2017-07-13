@@ -61,24 +61,6 @@ describe('<CheckboxInput />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('expect to render with customActiveClassName', () => {
-    const props = {
-      ...defaultProps,
-      checked: true,
-      customActiveClassName: 'custom-active-class-name',
-    };
-
-    const component = shallow(
-      <CheckboxInput
-        {...props}
-      >
-        label
-      </CheckboxInput>,
-    );
-
-    expect(component).toMatchSnapshot();
-  });
-
   it('expect to call onChange on input change', () => {
     const props = {
       ...defaultProps,
