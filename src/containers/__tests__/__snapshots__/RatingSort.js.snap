@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RatingSort /> expect to render 1`] = `
+<SortBy>
+  <RadioInput
+    checked={false}
+    customClassName=""
+    id="sort-desc"
+    name="sort"
+    onChange={[Function]}
+    value="apps_rating_desc"
+  >
+    Highest rating
+  </RadioInput>
+  <RadioInput
+    checked={false}
+    customClassName=""
+    id="sort-asc"
+    name="sort"
+    onChange={[Function]}
+    value="apps_rating_asc"
+  >
+    Lowest rating
+  </RadioInput>
+</SortBy>
+`;
+
+exports[`<RatingSort /> withQuery expect to render 1`] = `
+<RatingSort
+  indexName="index_name"
+  onChange={[Function]}
+/>
+`;
