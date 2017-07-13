@@ -3,13 +3,5 @@
 exports[`<InfiniteAppList /> expect to render 1`] = `
 <AppList
   hits={Array []}
-  isEndReached={false}
-  isInitialLoad={true}
-  isLoading={true}
-  nbHits={0}
-  nbPages={0}
-  onNextPage={[Function]}
-  page={0}
-  processingTimeMS={0}
 />
 `;

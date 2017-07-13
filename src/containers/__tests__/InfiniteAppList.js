@@ -1,20 +1,31 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
+import { withInfiniteHits } from 'components/Algolia';
 import InfiniteAppList from '../InfiniteAppList';
+
+jest.mock('components/Algolia', () => ({
+  withInfiniteHits: jest.fn(() => Component => props => (
+    <Component
+      {...props}
+      hits={[]}
+    />
+  )),
+}));
 
 describe('<InfiniteAppList />', () => {
   it('expect to render', () => {
-    const context = {
-      algoliaClient: createMockAlgoliaClient(),
-      algoliaHelper: createMockAlgoliaHelper(),
-    };
-
     const component = shallow(
       <InfiniteAppList />,
-      { context },
     );
 
     expect(component).toMatchSnapshot();
+  });
+
+  describe('withInfiniteHits', () => {
+    it('expect to be called', () => {
+      expect(withInfiniteHits).toHaveBeenCalledWith({
+        hitsPerPage: 50,
+      });
+    });
   });
 });
