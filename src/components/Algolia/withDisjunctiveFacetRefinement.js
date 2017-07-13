@@ -13,7 +13,7 @@ const withDisjunctiveFacetRefinement = ({
       this.onChange = this.onChange.bind(this);
     }
 
-    onChange(facetValue, isRefined) {
+    onChange(value, isRefined) {
       const { algoliaHelper } = this.context;
 
       if (isRefined) {
@@ -24,7 +24,7 @@ const withDisjunctiveFacetRefinement = ({
 
       algoliaHelper
         .removeDisjunctiveFacetRefinement(facet)
-        .addDisjunctiveFacetRefinement(facet, facetValue)
+        .addDisjunctiveFacetRefinement(facet, value)
         .search();
     }
 
