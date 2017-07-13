@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
 import { ContextTypes } from './Provider';
 
-const withDisjunctiveFacetRefinement = ({
-  facet,
-} = {}) => WrappedComponent => {
+const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedComponent => {
   class WithDisjunctiveFacetRefinement extends Component {
 
     constructor(props) {
