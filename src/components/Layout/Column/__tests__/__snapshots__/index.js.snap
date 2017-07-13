@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Column /> expect to render 1`] = `
-<div
-  styleName="Column"
->
-  Content
-</div>
-`;
