@@ -1,21 +1,10 @@
+# Algolia AppStore Front
 
-# React Webpack starter
+[![Build Status](https://travis-ci.org/samouss/algolia-appstore-front.svg?branch=master)](https://travis-ci.org/samouss/algolia-appstore-front) [![dependencies Status](https://david-dm.org/samouss/algolia-appstore-front/status.svg)](https://david-dm.org/samouss/algolia-appstore-front) [![devDependencies Status](https://david-dm.org/samouss/algolia-appstore-front/dev-status.svg)](https://david-dm.org/samouss/algolia-appstore-front?type=dev)
 
-[![dependencies Status](https://david-dm.org/samouss/react-webpack-starter/status.svg)](https://david-dm.org/samouss/react-webpack-starter) [![devDependencies Status](https://david-dm.org/samouss/react-webpack-starter/dev-status.svg)](https://david-dm.org/samouss/react-webpack-starter?type=dev)
+Simple AppStore build with React, Algolia, Webpack 3, Babel, CSS Modules, ESLint, Jest, Enzyme.
 
-React starter build with Webpack 3, Babel, CSS Modules, ESLint, Jest, Enzyme.
-
-## Clone
-
-Run this command for launch a new project from the starter.
-
-```
-// Run this command first for clone the repository
-git clone git@github.com:samouss/react-webpack-starter.git [PROJECT_NAME]
-
-// Then execute this one for remove .git information and start a new project
-rm -rf [PROJECT_NAME]/.git
-```
+Live API: [https://algolia-appstore-front.herokuapp.com](https://algolia-appstore-front.herokuapp.com) (it's a free dyno so be patient for the boot time 🙂)
 
 ## Installation
 
@@ -27,21 +16,19 @@ npm install
 
 ## Run the application
 
-For build the dev application and launch a server in watch mode on `localhost:8080`:
+- For run the development application and launch a server in watch mode on `localhost:8080`:
 
 ```
 npm start
 ```
 
-## Bundle the application
-
-For build your application for production:
+- For run the production application and launch a server on `localhost:8080`:
 
 ```
-npm run build
+npm run build && npm run serve
 ```
 
-## Run the test for your application
+## Run the test for the application
 
 Your tests will be executed in single run mode:
 
