@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-start",
+  "name": "algolia-appstore-front",
   "version": "1.0.0",
-  "description": "Webpack React Starter with Babel, ESLint, Mocha, Chai, Sinon, Enzyme",
+  "description": "Simple AppStore build with React, Algolia, Webpack 3, Babel, CSS Modules, ESLint, Jest, Enzyme.",
   "scripts": {
     "clean": "rm -rf dist",
     "start": "npm run clean && webpack-dev-server --inline --no-info",
@@ -10,7 +10,8 @@
     "build:client": "webpack --env.production",
     "build:server": "BABEL_ENV=node babel src/server.js --out-file dist/server.js",
     "test": "jest",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "heroku-postbuild": "npm i --only=dev && npm run build"
   },
   "repository": {
     "type": "git",
