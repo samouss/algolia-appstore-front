@@ -10,7 +10,9 @@ import configureAlgolia from './configureAlgolia';
 const algolia = configureAlgolia();
 
 const App = () => (
-  <Provider {...algolia} >
+  <Provider
+    {...algolia}
+  >
     <Container>
       <Filters>
         <SearchFilter />
