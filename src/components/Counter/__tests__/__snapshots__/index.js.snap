@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Counter /> expect to render 1`] = `
+<span
+  className=""
+  styleName="Counter"
+>
+  1,235
+</span>
+`;
+
+exports[`<Counter /> expect to render with customClassName 1`] = `
+<span
+  className="custom-class-name"
+  styleName="Counter"
+>
+  1,235
+</span>
+`;
