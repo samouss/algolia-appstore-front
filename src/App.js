@@ -5,21 +5,12 @@ import SearchFilter from 'containers/SearchFilter';
 import CategoryFilter from 'containers/CategoryFilter';
 import RatingSort from 'containers/RatingSort';
 import InfiniteAppList from 'containers/InfiniteAppList';
+import configureAlgolia from './configureAlgolia';
 
-const appId = 'RTMJH2ID8J';
-const apiKey = 'f8dac63a6dc38d8bd5893dad8969d819';
-const indexName = 'apps_rating_desc';
-const options = {
-  disjunctiveFacets: ['category'],
-};
+const algolia = configureAlgolia();
 
 const App = () => (
-  <Provider
-    appId={appId}
-    apiKey={apiKey}
-    indexName={indexName}
-    options={options}
-  >
+  <Provider {...algolia} >
     <Container>
       <Filters>
         <SearchFilter />
