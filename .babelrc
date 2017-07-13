@@ -20,5 +20,10 @@
         "transform-es2015-modules-commonjs",
       ],
     },
+    "node": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+      ],
+    },
   },
 }
