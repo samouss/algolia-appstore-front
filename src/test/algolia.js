@@ -11,6 +11,9 @@ export const createMockAlgoliaHelper = () => ({
   addDisjunctiveFacetRefinement: jest.fn().mockReturnThis(),
   removeDisjunctiveFacetRefinement: jest.fn().mockReturnThis(),
 
+  addNumericRefinement: jest.fn().mockReturnThis(),
+  removeNumericRefinement: jest.fn().mockReturnThis(),
+
   // Pagination
   nextPage: jest.fn().mockReturnThis(),
 
