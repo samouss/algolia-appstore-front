@@ -3,7 +3,10 @@ const configureAlgolia = () => ({
   apiKey: 'f8dac63a6dc38d8bd5893dad8969d819',
   indexName: 'apps_rating_desc',
   options: {
-    disjunctiveFacets: ['category'],
+    disjunctiveFacets: [
+      'category',
+      'rating',
+    ],
   },
 });
 

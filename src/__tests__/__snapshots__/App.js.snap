@@ -9,6 +9,7 @@ exports[`<App> expect to render 1`] = `
     Object {
       "disjunctiveFacets": Array [
         "category",
+        "rating",
       ],
     }
   }
