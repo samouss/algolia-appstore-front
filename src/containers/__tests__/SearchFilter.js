@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
-import WithQuery, { Search } from '../Search';
+import WithQuery, { SearchFilter } from '../SearchFilter';
 
-describe('<Search />', () => {
+describe('<SearchFilter />', () => {
   const defaultProps = {
     query: 'This is a query',
     onChange: () => {},
@@ -15,7 +15,7 @@ describe('<Search />', () => {
     };
 
     const component = shallow(
-      <Search
+      <SearchFilter
         {...props}
       />,
     );
@@ -30,7 +30,7 @@ describe('<Search />', () => {
     };
 
     const component = shallow(
-      <Search
+      <SearchFilter
         {...props}
       />,
     );

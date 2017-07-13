@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withQuery } from 'components/Algolia';
 import { TextInput } from 'components/Input';
 
-export const Search = ({ query, onChange, ...props }) => (
+export const SearchFilter = ({ query, onChange, ...props }) => (
   <TextInput
     {...props}
     value={query}
@@ -12,9 +12,9 @@ export const Search = ({ query, onChange, ...props }) => (
   />
 );
 
-Search.propTypes = {
+SearchFilter.propTypes = {
   query: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default withQuery(Search);
+export default withQuery(SearchFilter);

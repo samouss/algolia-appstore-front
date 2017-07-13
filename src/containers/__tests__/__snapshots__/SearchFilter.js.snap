@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Search /> expect to render 1`] = `
+exports[`<SearchFilter /> expect to render 1`] = `
 <TextInput
   enableClearButton={true}
   onChange={[Function]}
@@ -9,8 +9,8 @@ exports[`<Search /> expect to render 1`] = `
 />
 `;
 
-exports[`<Search /> withQuery expect to render 1`] = `
-<Search
+exports[`<SearchFilter /> withQuery expect to render 1`] = `
+<SearchFilter
   onChange={[Function]}
   query=""
 />
