@@ -22,10 +22,10 @@ exports[`<AppItem /> expect to render 1`] = `
     <div
       styleName="AppItem__Ratings"
     >
-      <Ratings
+      <Stars
         color="#ff9501"
-        note={3}
         on={5}
+        value={3}
       />
       <span
         styleName="AppItem__Ratings__Count"
@@ -71,10 +71,10 @@ exports[`<AppItem /> expect to render a paid app 1`] = `
     <div
       styleName="AppItem__Ratings"
     >
-      <Ratings
+      <Stars
         color="#ff9501"
-        note={3}
         on={5}
+        value={3}
       />
       <span
         styleName="AppItem__Ratings__Count"

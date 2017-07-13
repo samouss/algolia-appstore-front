@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { escapeAndReplaceTag } from 'components/Algolia';
 import Thumbnail from 'components/Thumbnail';
-import Ratings from 'components/Ratings';
+import Stars from 'components/Stars';
 import Button from 'components/Button';
 import './index.css';
 
@@ -44,8 +44,9 @@ const AppItem = ({
       />
 
       <div styleName="AppItem__Ratings">
-        <Ratings
-          note={rating}
+        <Stars
+          color="#ff9501"
+          value={rating}
           on={5}
         />
 
