@@ -20,4 +20,52 @@ describe('<Advanced />', () => {
 
     expect(component).toMatchSnapshot();
   });
+
+  it('expect to turn content to visible', () => {
+    const props = {
+      ...defaultProps,
+    };
+
+    const component = shallow(
+      <Advanced
+        {...props}
+      >
+        Content
+      </Advanced>,
+    );
+
+    component
+      .find('[styleName="Advanced__Link"]')
+      .simulate('click', {
+        preventDefault: () => {},
+      });
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('expect to turn content to hide', () => {
+    const props = {
+      ...defaultProps,
+    };
+
+    const component = shallow(
+      <Advanced
+        {...props}
+      >
+        Content
+      </Advanced>,
+    );
+
+    component.setState({
+      isVisible: true,
+    });
+
+    component
+      .find('[styleName="Advanced__Link"]')
+      .simulate('click', {
+        preventDefault: () => {},
+      });
+
+    expect(component).toMatchSnapshot();
+  });
 });

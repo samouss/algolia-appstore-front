@@ -4,6 +4,66 @@ exports[`<Advanced /> expect to render 1`] = `
 <div
   styleName="Advanced"
 >
-  Content
+  <div
+    styleName="Advanced__Content"
+  >
+    Content
+  </div>
+  <a
+    href=""
+    onClick={[Function]}
+    styleName="Advanced__Link"
+  >
+    Advanced filters
+    <i
+      aria-hidden="true"
+      className="fa fa-chevron-down"
+    />
+  </a>
+</div>
+`;
+
+exports[`<Advanced /> expect to turn content to hide 1`] = `
+<div
+  styleName="Advanced"
+>
+  <div
+    styleName="Advanced__Content"
+  >
+    Content
+  </div>
+  <a
+    href=""
+    onClick={[Function]}
+    styleName="Advanced__Link"
+  >
+    Advanced filters
+    <i
+      aria-hidden="true"
+      className="fa fa-chevron-down"
+    />
+  </a>
+</div>
+`;
+
+exports[`<Advanced /> expect to turn content to visible 1`] = `
+<div
+  styleName="Advanced"
+>
+  <div
+    styleName="Advanced__Content Advanced__Content--visible"
+  >
+    Content
+  </div>
+  <a
+    href=""
+    onClick={[Function]}
+    styleName="Advanced__Link"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-chevron-up"
+    />
+  </a>
 </div>
 `;

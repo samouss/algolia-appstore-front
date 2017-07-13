@@ -2,8 +2,33 @@
   display: flex;
   flex-direction: column;
   margin-top: 1vh;
+}
+
+.Advanced__Content {
+  margin-bottom: 1vh;
+  display: none;
 
   @media (--tablet) {
+    display: flex;
     flex-direction: row;
+  }
+}
+
+.Advanced__Content--visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.Advanced__Link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 25px;
+  color: #b9b9b9;
+  font-size: 0.8rem;
+
+  @media (--tablet) {
+    display: none;
   }
 }
