@@ -45,11 +45,7 @@ describe('algolia', () => {
 
       component
         .find('Component')
-        .simulate('change', {
-          currentTarget: {
-            value: '',
-          },
-        });
+        .simulate('change');
 
       expect(onChange).toHaveBeenCalled();
       onChange.mockRestore();
@@ -78,11 +74,7 @@ describe('algolia', () => {
           { context },
         );
 
-        component.instance().onChange({
-          currentTarget: {
-            value: 'This is a query',
-          },
-        });
+        component.instance().onChange('This is a query');
 
         expect(component.state()).toEqual(expectation);
       });
@@ -98,11 +90,7 @@ describe('algolia', () => {
           { context },
         );
 
-        component.instance().onChange({
-          currentTarget: {
-            value: 'This is a query',
-          },
-        });
+        component.instance().onChange('This is a query');
 
         expect(context.algoliaHelper.setQuery).toHaveBeenCalledWith(expectation);
         expect(context.algoliaHelper.search).toHaveBeenCalled();

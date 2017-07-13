@@ -15,9 +15,7 @@ const withQuery = WrappedComponent => {
       this.onChange = this.onChange.bind(this);
     }
 
-    onChange(event) {
-      const query = event.currentTarget.value;
-
+    onChange(query) {
       this.setState(() => ({
         query,
       }));
