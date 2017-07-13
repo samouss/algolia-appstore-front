@@ -6,6 +6,7 @@ const withFacet = ({
   facet,
   maxFacetValues = 10,
   getFacetValuesOptions = {},
+  reduceFacetValues = x => x,
 } = {}) => WrappedComponent => {
   if (!facet) {
     throw new Error('You must provide the facet parameter.');
@@ -34,12 +35,19 @@ const withFacet = ({
     }
 
     updateState(content) {
+      const { algoliaHelper } = this.context;
+
       const facetValues = content.getFacetValues(
         facet,
         getFacetValuesOptions,
       );
 
-      const facetValuesUpToMaxNbValuesToDisplay = facetValues
+      const facetValuesReduced = reduceFacetValues(
+        facetValues,
+        algoliaHelper.getState(),
+      );
+
+      const facetValuesUpToMaxNbValuesToDisplay = facetValuesReduced
         .filter(_ => _.count > 0)
         .slice(0, maxFacetValues);
 

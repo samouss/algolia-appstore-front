@@ -178,6 +178,54 @@ describe('algolia', () => {
         );
       });
 
+      it('expect to reduce facet values from given function', () => {
+        const context = createContext();
+
+        context.algoliaHelper.getState.mockImplementationOnce(() => ({
+          state: 'the state',
+        }));
+
+        const parameters = {
+          ...defaultParameters,
+          reduceFacetValues: jest.fn(() => [
+            { name: 'reduce', count: 2 },
+          ]),
+        };
+
+        const ApplyComponent = withFacet(parameters)(Component);
+
+        const component = shallow(
+          <ApplyComponent>
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        const content = {
+          getFacetValues: jest.fn(() => [
+            { count: 0 },
+            { count: 10 },
+          ]),
+        };
+
+        const expectation = [
+          { name: 'reduce', count: 2 },
+        ];
+
+        component.instance().updateState(content);
+
+        expect(component.state().facetValues).toEqual(expectation);
+        expect(parameters.reduceFacetValues).toHaveBeenCalledWith(
+          [
+            { count: 0 },
+            { count: 10 },
+          ],
+          {
+            state: 'the state',
+          },
+        );
+      });
+
       it('expect to keep only facet values greater than 0', () => {
         const context = createContext();
 
