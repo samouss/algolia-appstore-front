@@ -23,6 +23,29 @@ describe('<Search />', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('expect to call onChange', () => {
+    const props = {
+      ...defaultProps,
+      onChange: jest.fn(),
+    };
+
+    const component = shallow(
+      <Search
+        {...props}
+      />,
+    );
+
+    component
+      .find('TextInput')
+      .simulate('change', {
+        currentTarget: {
+          value: 'query',
+        },
+      });
+
+    expect(props.onChange).toHaveBeenCalledWith('query');
+  });
+
   describe('withQuery', () => {
     it('expect to render', () => {
       const context = {
