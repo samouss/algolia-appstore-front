@@ -1,0 +1,9 @@
+.Advanced {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1vh;
+
+  @media (--tablet) {
+    flex-direction: row;
+  }
+}

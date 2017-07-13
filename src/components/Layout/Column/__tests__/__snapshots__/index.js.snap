@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Layout /> expect to render 1`] = `
+exports[`<Column /> expect to render 1`] = `
 <div
-  styleName="Layout"
+  styleName="Column"
 >
   Content
 </div>
