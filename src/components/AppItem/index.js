@@ -50,7 +50,7 @@ const AppItem = ({
         />
 
         <span styleName="AppItem__Ratings__Count">
-          ({ratingCount})
+          ({ratingCount.toLocaleString()})
         </span>
       </div>
     </div>
