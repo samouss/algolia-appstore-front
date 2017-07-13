@@ -14,6 +14,9 @@ export const createMockAlgoliaHelper = () => ({
   // Pagination
   nextPage: jest.fn().mockReturnThis(),
 
+  // State
+  getState: jest.fn(),
+
   // Events
   on: jest.fn().mockReturnThis(),
   removeListener: jest.fn().mockReturnThis(),
