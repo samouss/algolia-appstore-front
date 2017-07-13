@@ -1,7 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
 import WithQuery, { RatingSort } from '../RatingSort';
+
+jest.mock('components/Algolia', () => ({
+  withIndex: jest.fn(Component => props => (
+    <Component
+      {...props}
+      indexName="sample"
+      onChange={() => {}}
+    />
+  )),
+}));
 
 describe('<RatingSort />', () => {
   const defaultProps = {
@@ -47,16 +56,10 @@ describe('<RatingSort />', () => {
     expect(props.onChange).toHaveBeenCalledWith('apps_rating_desc');
   });
 
-  describe('withQuery', () => {
+  describe('withIndex', () => {
     it('expect to render', () => {
-      const context = {
-        algoliaClient: createMockAlgoliaClient(),
-        algoliaHelper: createMockAlgoliaHelper(),
-      };
-
       const component = shallow(
         <WithQuery />,
-        { context },
       );
 
       expect(component).toMatchSnapshot();
