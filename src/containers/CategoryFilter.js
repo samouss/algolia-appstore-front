@@ -5,6 +5,13 @@ import CategoryList from 'components/CategoryList';
 const facet = 'category';
 
 export default flowRight(
-  withFacet({ facet }),
-  withDisjunctiveFacetRefinement({ facet }),
+  withFacet({
+    facet,
+    getFacetValuesOptions: {
+      sortBy: ['count:desc'],
+    },
+  }),
+  withDisjunctiveFacetRefinement({
+    facet,
+  }),
 )(CategoryList);
