@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SortBy /> expect to render 1`] = `
+<div>
+  <p
+    styleName="SortBy__Label"
+  >
+    Sort by:
+  </p>
+  Content
+</div>
+`;
