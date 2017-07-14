@@ -1,30 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withIndex } from 'components/Algolia';
-import { RadioInput } from 'components/Input';
-import SortBy from 'components/SortBy';
+import FilterList from 'components/FilterList';
+import FilterItem from 'components/FilterItem';
 
 export const RatingSort = ({ indexName, onChange }) => (
-  <SortBy>
-    <RadioInput
-      id="sort-desc"
-      name="sort"
+  <FilterList>
+    <FilterItem
       value="apps_rating_desc"
-      checked={indexName === 'apps_rating_desc'}
-      onChange={event => onChange(event.currentTarget.value)}
+      isRefined={indexName === 'apps_rating_desc'}
+      onChange={() => onChange('apps_rating_desc')}
     >
-      Highest rating
-    </RadioInput>
-    <RadioInput
-      id="sort-asc"
-      name="sort"
+      By highest rating
+    </FilterItem>
+    <FilterItem
       value="apps_rating_asc"
-      checked={indexName === 'apps_rating_asc'}
-      onChange={event => onChange(event.currentTarget.value)}
+      isRefined={indexName === 'apps_rating_asc'}
+      onChange={() => onChange('apps_rating_asc')}
     >
-      Lowest rating
-    </RadioInput>
-  </SortBy>
+      By lowest rating
+    </FilterItem>
+  </FilterList>
 );
 
 RatingSort.propTypes = {

@@ -1,28 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RatingSort /> expect to render 1`] = `
-<SortBy>
-  <RadioInput
-    checked={false}
-    customClassName=""
-    id="sort-desc"
-    name="sort"
+<FilterList
+  customClassName=""
+>
+  <FilterItem
+    isRefined={false}
     onChange={[Function]}
     value="apps_rating_desc"
   >
-    Highest rating
-  </RadioInput>
-  <RadioInput
-    checked={false}
-    customClassName=""
-    id="sort-asc"
-    name="sort"
+    By highest rating
+  </FilterItem>
+  <FilterItem
+    isRefined={false}
     onChange={[Function]}
     value="apps_rating_asc"
   >
-    Lowest rating
-  </RadioInput>
-</SortBy>
+    By lowest rating
+  </FilterItem>
+</FilterList>
 `;
 
 exports[`<RatingSort /> withIndex expect to render 1`] = `

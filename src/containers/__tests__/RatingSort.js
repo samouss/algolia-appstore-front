@@ -32,7 +32,7 @@ describe('<RatingSort />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('expect to call onChange', () => {
+  it('expect to call onChange on first sort', () => {
     const props = {
       ...defaultProps,
       onChange: jest.fn(),
@@ -45,15 +45,31 @@ describe('<RatingSort />', () => {
     );
 
     component
-      .find('RadioInput')
+      .find('FilterItem')
       .first()
-      .simulate('change', {
-        currentTarget: {
-          value: 'apps_rating_desc',
-        },
-      });
+      .simulate('change');
 
     expect(props.onChange).toHaveBeenCalledWith('apps_rating_desc');
+  });
+
+  it('expect to call onChange on second sort', () => {
+    const props = {
+      ...defaultProps,
+      onChange: jest.fn(),
+    };
+
+    const component = shallow(
+      <RatingSort
+        {...props}
+      />,
+    );
+
+    component
+      .find('FilterItem')
+      .at(1)
+      .simulate('change');
+
+    expect(props.onChange).toHaveBeenCalledWith('apps_rating_asc');
   });
 
   describe('withIndex', () => {
