@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './index.css';
 
-class Advanced extends Component {
+class AdvancedFilters extends Component {
 
   constructor(props) {
     super(props);
@@ -30,17 +30,17 @@ class Advanced extends Component {
       : <i className="fa fa-chevron-down" aria-hidden="true" />;
 
     return (
-      <div styleName="Advanced">
+      <div styleName="AdvancedFilters">
         <div
-          styleName={cx('Advanced__Content', {
-            'Advanced__Content--visible': isVisible,
+          styleName={cx('AdvancedFilters__Content', {
+            'AdvancedFilters__Content--visible': isVisible,
           })}
         >
           {children}
         </div>
         <a
           href=""
-          styleName="Advanced__Link"
+          styleName="AdvancedFilters__Link"
           onClick={this.toggle}
         >
           {!isVisible && 'Advanced filters'}
@@ -52,8 +52,8 @@ class Advanced extends Component {
 
 }
 
-Advanced.propTypes = {
+AdvancedFilters.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Advanced;
+export default AdvancedFilters;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Advanced from '../index';
+import AdvancedFilters from '../index';
 
-describe('<Advanced />', () => {
+describe('<AdvancedFilters />', () => {
   const defaultProps = {};
 
   it('expect to render', () => {
@@ -11,11 +11,11 @@ describe('<Advanced />', () => {
     };
 
     const component = shallow(
-      <Advanced
+      <AdvancedFilters
         {...props}
       >
         Content
-      </Advanced>,
+      </AdvancedFilters>,
     );
 
     expect(component).toMatchSnapshot();
@@ -27,15 +27,15 @@ describe('<Advanced />', () => {
     };
 
     const component = shallow(
-      <Advanced
+      <AdvancedFilters
         {...props}
       >
         Content
-      </Advanced>,
+      </AdvancedFilters>,
     );
 
     component
-      .find('[styleName="Advanced__Link"]')
+      .find('[styleName="AdvancedFilters__Link"]')
       .simulate('click', {
         preventDefault: () => {},
       });
@@ -49,11 +49,11 @@ describe('<Advanced />', () => {
     };
 
     const component = shallow(
-      <Advanced
+      <AdvancedFilters
         {...props}
       >
         Content
-      </Advanced>,
+      </AdvancedFilters>,
     );
 
     component.setState({
@@ -61,7 +61,7 @@ describe('<Advanced />', () => {
     });
 
     component
-      .find('[styleName="Advanced__Link"]')
+      .find('[styleName="AdvancedFilters__Link"]')
       .simulate('click', {
         preventDefault: () => {},
       });

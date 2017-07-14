@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Advanced /> expect to render 1`] = `
+exports[`<AdvancedFilters /> expect to render 1`] = `
 <div
-  styleName="Advanced"
+  styleName="AdvancedFilters"
 >
   <div
-    styleName="Advanced__Content"
+    styleName="AdvancedFilters__Content"
   >
     Content
   </div>
   <a
     href=""
     onClick={[Function]}
-    styleName="Advanced__Link"
+    styleName="AdvancedFilters__Link"
   >
     Advanced filters
     <i
@@ -23,19 +23,19 @@ exports[`<Advanced /> expect to render 1`] = `
 </div>
 `;
 
-exports[`<Advanced /> expect to turn content to hide 1`] = `
+exports[`<AdvancedFilters /> expect to turn content to hide 1`] = `
 <div
-  styleName="Advanced"
+  styleName="AdvancedFilters"
 >
   <div
-    styleName="Advanced__Content"
+    styleName="AdvancedFilters__Content"
   >
     Content
   </div>
   <a
     href=""
     onClick={[Function]}
-    styleName="Advanced__Link"
+    styleName="AdvancedFilters__Link"
   >
     Advanced filters
     <i
@@ -46,19 +46,19 @@ exports[`<Advanced /> expect to turn content to hide 1`] = `
 </div>
 `;
 
-exports[`<Advanced /> expect to turn content to visible 1`] = `
+exports[`<AdvancedFilters /> expect to turn content to visible 1`] = `
 <div
-  styleName="Advanced"
+  styleName="AdvancedFilters"
 >
   <div
-    styleName="Advanced__Content Advanced__Content--visible"
+    styleName="AdvancedFilters__Content AdvancedFilters__Content--visible"
   >
     Content
   </div>
   <a
     href=""
     onClick={[Function]}
-    styleName="Advanced__Link"
+    styleName="AdvancedFilters__Link"
   >
     <i
       aria-hidden="true"
