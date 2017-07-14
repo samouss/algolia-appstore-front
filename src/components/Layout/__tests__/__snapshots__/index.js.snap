@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Container /> expect to render 1`] = `
-<div
-  styleName="Container"
->
-  Content
-</div>
-`;
-
 exports[`<Layout /> expect to render 1`] = `
 <div
   styleName="Layout"

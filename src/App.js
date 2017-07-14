@@ -1,8 +1,11 @@
 import React from 'react';
 import { Provider } from 'components/Algolia';
-import { Container, Filters, Advanced, Column, Row } from 'components/Layout';
+import Layout from 'components/Layout';
+import Filters from 'components/Filters';
+import AdvancedFilters from 'components/AdvancedFilters';
 import SearchFilter from 'containers/SearchFilter';
 import CategoryFilter from 'containers/CategoryFilter';
+import RatingFilter from 'containers/RatingFilter';
 import RatingSort from 'containers/RatingSort';
 import InfiniteAppList from 'containers/InfiniteAppList';
 import configureAlgolia from './configureAlgolia';
@@ -13,27 +16,19 @@ const App = () => (
   <Provider
     {...algolia}
   >
-    <Container>
+    <Layout>
       <Filters>
         <SearchFilter />
 
-        <Advanced>
-          <Column>
-            <Row>
-              <CategoryFilter />
-            </Row>
-          </Column>
-
-          <Column>
-            <Row>
-              <RatingSort />
-            </Row>
-          </Column>
-        </Advanced>
+        <AdvancedFilters>
+          <CategoryFilter />
+          <RatingFilter />
+          <RatingSort />
+        </AdvancedFilters>
       </Filters>
 
       <InfiniteAppList />
-    </Container>
+    </Layout>
   </Provider>
 );
 

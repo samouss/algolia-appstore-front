@@ -14,23 +14,16 @@ exports[`<App> expect to render 1`] = `
     }
   }
 >
-  <Container>
+  <Layout>
     <Filters>
       <withQuery(SearchFilter) />
-      <Advanced>
-        <Column>
-          <Row>
-            <withFacet(withDisjunctiveFacetRefinement(CategoryList)) />
-          </Row>
-        </Column>
-        <Column>
-          <Row>
-            <withIndex(RatingSort) />
-          </Row>
-        </Column>
-      </Advanced>
+      <AdvancedFilters>
+        <withFacet(withDisjunctiveFacetRefinement(CategoryList)) />
+        <withFacet(withNumericRefinement(RatingList)) />
+        <withIndex(RatingSort) />
+      </AdvancedFilters>
     </Filters>
     <withInfiniteHits(AppList) />
-  </Container>
+  </Layout>
 </Provider>
 `;
