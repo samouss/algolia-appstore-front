@@ -1,0 +1,17 @@
+.FilterList {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #f2f2f2;
+  margin-right: 1vh;
+  margin-bottom: 1vh;
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  @media (--tablet) {
+    margin-bottom: 0;
+    width: 25%;
+  }
+}

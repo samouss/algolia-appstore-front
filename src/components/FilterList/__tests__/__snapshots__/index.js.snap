@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilterList /> expect to render 1`] = `
+<ul
+  className=""
+  styleName="FilterList"
+>
+  <li>
+    Content
+  </li>
+  <li>
+    Content
+  </li>
+</ul>
+`;
+
+exports[`<FilterList /> expect to render with customClassName 1`] = `
+<ul
+  className="custom-class-name"
+  styleName="FilterList"
+>
+  <li>
+    Content
+  </li>
+  <li>
+    Content
+  </li>
+</ul>
+`;
