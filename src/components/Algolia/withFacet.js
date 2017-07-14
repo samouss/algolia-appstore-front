@@ -4,10 +4,10 @@ import { ContextTypes } from './Provider';
 
 const withFacet = ({
   facet,
-  maxFacetValues = 10,
+  maxValuesPerFacet = 10,
   getFacetValuesOptions = {},
   reduceFacetValues = x => x,
-} = {}) => WrappedComponent => {
+}) => WrappedComponent => {
   if (!facet) {
     throw new Error('You must provide the facet parameter.');
   }
@@ -26,6 +26,8 @@ const withFacet = ({
 
     componentDidMount() {
       const { algoliaHelper } = this.context;
+
+      algoliaHelper.setQueryParameter('maxValuesPerFacet', maxValuesPerFacet);
 
       algoliaHelper.on('result', this.updateState);
     }
@@ -47,12 +49,8 @@ const withFacet = ({
         algoliaHelper.getState(),
       );
 
-      const facetValuesUpToMaxNbValuesToDisplay = facetValuesReduced
-        .filter(_ => _.count > 0)
-        .slice(0, maxFacetValues);
-
       this.setState(() => ({
-        facetValues: facetValuesUpToMaxNbValuesToDisplay,
+        facetValues: facetValuesReduced,
       }));
     }
 

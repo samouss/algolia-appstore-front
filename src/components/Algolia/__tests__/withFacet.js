@@ -67,6 +67,55 @@ describe('algolia', () => {
     });
 
     describe('componentDidMount', () => {
+      it('expect to set maxValuesPerFacet with default value', () => {
+        const context = createContext();
+
+        const parameters = {
+          ...defaultParameters,
+        };
+
+        const ApplyComponent = withFacet(parameters)(Component);
+
+        const component = shallow(
+          <ApplyComponent>
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        component.instance().componentDidMount();
+
+        expect(context.algoliaHelper.setQueryParameter).toHaveBeenCalledWith(
+          'maxValuesPerFacet',
+          10,
+        );
+      });
+
+      it('expect to set maxValuesPerFacet with given value', () => {
+        const context = createContext();
+
+        const parameters = {
+          ...defaultParameters,
+          maxValuesPerFacet: 25,
+        };
+
+        const ApplyComponent = withFacet(parameters)(Component);
+
+        const component = shallow(
+          <ApplyComponent>
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        component.instance().componentDidMount();
+
+        expect(context.algoliaHelper.setQueryParameter).toHaveBeenCalledWith(
+          'maxValuesPerFacet',
+          25,
+        );
+      });
+
       it('expect to subscribe to result event', () => {
         const context = createContext();
 
@@ -224,73 +273,6 @@ describe('algolia', () => {
             state: 'the state',
           },
         );
-      });
-
-      it('expect to keep only facet values greater than 0', () => {
-        const context = createContext();
-
-        const parameters = {
-          ...defaultParameters,
-        };
-
-        const ApplyComponent = withFacet(parameters)(Component);
-
-        const component = shallow(
-          <ApplyComponent>
-            <div>Content</div>
-          </ApplyComponent>,
-          { context },
-        );
-
-        const content = {
-          getFacetValues: jest.fn(() => [
-            { count: 0 },
-            { count: 10 },
-          ]),
-        };
-
-        const expectation = [
-          { count: 10 },
-        ];
-
-        component.instance().updateState(content);
-
-        expect(component.state().facetValues).toEqual(expectation);
-      });
-
-      it('expect to keep only given number of facet values', () => {
-        const context = createContext();
-
-        const parameters = {
-          ...defaultParameters,
-          maxFacetValues: 2,
-        };
-
-        const ApplyComponent = withFacet(parameters)(Component);
-
-        const component = shallow(
-          <ApplyComponent>
-            <div>Content</div>
-          </ApplyComponent>,
-          { context },
-        );
-
-        const content = {
-          getFacetValues: jest.fn(() => [
-            { count: 30 },
-            { count: 20 },
-            { count: 10 },
-          ]),
-        };
-
-        const expectation = [
-          { count: 30 },
-          { count: 20 },
-        ];
-
-        component.instance().updateState(content);
-
-        expect(component.state().facetValues).toEqual(expectation);
       });
     });
   });
