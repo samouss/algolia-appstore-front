@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RatingFilter /> expect to render 1`] = `
+<RatingList
+  facetValues={Array []}
+  onChange={[Function]}
+/>
+`;
