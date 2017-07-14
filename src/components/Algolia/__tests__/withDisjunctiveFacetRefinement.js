@@ -41,6 +41,12 @@ describe('algolia', () => {
       expect(component).toMatchSnapshot();
     });
 
+    it('expect to throw when facet is not provided', () => {
+      expect(() => withDisjunctiveFacetRefinement()(Component)).toThrow(
+        'You must provide the facet parameter.',
+      );
+    });
+
     it('expect to call onChange', () => {
       const context = createContext();
 

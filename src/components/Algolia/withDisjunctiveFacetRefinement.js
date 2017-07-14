@@ -3,6 +3,10 @@ import { getDisplayName } from 'core/utils';
 import { ContextTypes } from './Provider';
 
 const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedComponent => {
+  if (!facet) {
+    throw new Error('You must provide the facet parameter.');
+  }
+
   class WithDisjunctiveFacetRefinement extends Component {
 
     constructor(props) {
