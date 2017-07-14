@@ -31,7 +31,10 @@ exports[`<AppItem /> expect to render 1`] = `
         styleName="AppItem__Ratings__Count"
       >
         (
-        1,234
+        <Counter
+          customClassName=""
+          value={1234}
+        />
         )
       </span>
     </div>
@@ -80,7 +83,10 @@ exports[`<AppItem /> expect to render a paid app 1`] = `
         styleName="AppItem__Ratings__Count"
       >
         (
-        1,234
+        <Counter
+          customClassName=""
+          value={1234}
+        />
         )
       </span>
     </div>

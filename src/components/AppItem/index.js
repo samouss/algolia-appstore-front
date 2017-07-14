@@ -4,6 +4,7 @@ import { escapeAndReplaceTag } from 'components/Algolia';
 import Thumbnail from 'components/Thumbnail';
 import Stars from 'components/Stars';
 import Button from 'components/Button';
+import Counter from 'components/Counter';
 import './index.css';
 
 export const HitPropTypes = {
@@ -51,7 +52,9 @@ const AppItem = ({
         />
 
         <span styleName="AppItem__Ratings__Count">
-          ({ratingCount.toLocaleString()})
+          (<Counter
+            value={ratingCount}
+          />)
         </span>
       </div>
     </div>

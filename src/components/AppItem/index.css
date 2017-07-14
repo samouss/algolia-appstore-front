@@ -43,6 +43,7 @@
   display: flex;
   font-size: 0.8rem;
   margin-top: 2px;
+  align-items: center;
 
   @media (--tablet) {
     font-size: 1rem;
@@ -52,6 +53,11 @@
 .AppItem__Ratings__Count {
   color: #b9b9b9;
   margin-left: 5px;
+  font-size: 0.85rem;
+
+  @media (--tablet) {
+    font-size: 1rem;
+  }
 }
 
 .AppItem__Actions {
