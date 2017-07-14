@@ -1,5 +1,15 @@
-export { default as Advanced } from './Advanced';
-export { default as Row } from './Row';
-export { default as Column } from './Column';
-export { default as Container } from './Container';
-export { default as Filters } from './Filters';
+import React from 'react';
+import PropTypes from 'prop-types';
+import './index.css';
+
+const Layout = ({ children }) => (
+  <div styleName="Layout">
+    {children}
+  </div>
+);
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Layout;

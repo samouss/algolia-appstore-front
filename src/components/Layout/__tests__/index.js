@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Container from '../index';
+import Layout from '../index';
 
-describe('<Container />', () => {
+describe('<Layout />', () => {
   const defaultProps = {};
 
   it('expect to render', () => {
@@ -11,11 +11,11 @@ describe('<Container />', () => {
     };
 
     const component = shallow(
-      <Container
+      <Layout
         {...props}
       >
         Content
-      </Container>,
+      </Layout>,
     );
 
     expect(component).toMatchSnapshot();

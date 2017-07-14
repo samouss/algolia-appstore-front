@@ -7,3 +7,11 @@ exports[`<Container /> expect to render 1`] = `
   Content
 </div>
 `;
+
+exports[`<Layout /> expect to render 1`] = `
+<div
+  styleName="Layout"
+>
+  Content
+</div>
+`;
