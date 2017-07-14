@@ -6,6 +6,14 @@ const withNumericRefinement = ({
   attribute,
   operator,
 } = {}) => WrappedComponent => {
+  if (!attribute) {
+    throw new Error('You must provide the attribute parameter.');
+  }
+
+  if (!operator) {
+    throw new Error('You must provide the operator parameter.');
+  }
+
   class WithDisjunctiveFacetRefinement extends Component {
 
     constructor(props) {

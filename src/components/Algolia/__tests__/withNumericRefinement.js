@@ -42,6 +42,18 @@ describe('algolia', () => {
       expect(component).toMatchSnapshot();
     });
 
+    it('expect to throw when attribute is not provided', () => {
+      expect(() => withNumericRefinement()(Component)).toThrow(
+        'You must provide the attribute parameter.',
+      );
+    });
+
+    it('expect to throw when operator is not provided', () => {
+      expect(() => withNumericRefinement({ attribute: 'rating' })(Component)).toThrow(
+        'You must provide the operator parameter.',
+      );
+    });
+
     it('expect to call onChange', () => {
       const context = createContext();
 
