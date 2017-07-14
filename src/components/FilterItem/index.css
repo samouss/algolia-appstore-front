@@ -1,0 +1,23 @@
+.FilterItem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+
+  &:hover,
+  &:hover span {
+    color: #0080ff;
+  }
+}
+
+.FilterItem--active,
+.FilterItem--active span {
+  background-color: #0080ff;
+  color: #ffffff;
+
+  &:hover,
+  &:hover span {
+    color: #ffffff;
+  }
+}

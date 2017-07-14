@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilterItem /> expect to render 1`] = `
+<li>
+  <a
+    href=""
+    onClick={[Function]}
+    styleName="FilterItem"
+  >
+    Value
+  </a>
+</li>
+`;
+
+exports[`<FilterItem /> expect to render when refined 1`] = `
+<li>
+  <a
+    href=""
+    onClick={[Function]}
+    styleName="FilterItem FilterItem--active"
+  >
+    Value
+  </a>
+</li>
+`;
