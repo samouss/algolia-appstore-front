@@ -1,24 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CategoryItem from 'components/CategoryItem';
-import './index.css';
+import FilterList from 'components/FilterList';
+import FilterItem from 'components/FilterItem';
+import Counter from 'components/Counter';
+import style from './index.css';
 
 const CategoryList = ({ facetValues, onChange }) => (
-  <ul styleName="CategoryList">
-    {facetValues.map(facetValue => (
-      <CategoryItem
-        key={facetValue.name}
-        name={facetValue.name}
-        count={facetValue.count}
-        isRefined={facetValue.isRefined}
-        onChange={onChange}
-      />
+  <FilterList
+    customClassName={style.CategoryList}
+  >
+    {facetValues.map(({ name, count, isRefined }) => (
+      <FilterItem
+        key={name}
+        value={name}
+        isRefined={isRefined}
+        onChange={() => onChange(name, isRefined)}
+      >
+        <span>{name}</span>
+
+        <Counter
+          value={count}
+        />
+      </FilterItem>
     ))}
-  </ul>
+  </FilterList>
 );
 
 CategoryList.propTypes = {
-  facetValues: PropTypes.arrayOf(PropTypes.any).isRequired,
+  facetValues: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    count: PropTypes.number.isRequired,
+    isRefined: PropTypes.bool.isRequired,
+  })).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

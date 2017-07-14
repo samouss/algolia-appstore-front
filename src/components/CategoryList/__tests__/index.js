@@ -46,10 +46,13 @@ describe('<CategoryList />', () => {
     );
 
     component
-      .find('CategoryItem')
+      .find('FilterItem')
       .first()
       .simulate('change');
 
-    expect(props.onChange).toHaveBeenCalled();
+    expect(props.onChange).toHaveBeenCalledWith(
+      'Games',
+      true,
+    );
   });
 });

@@ -1,20 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CategoryList /> expect to render 1`] = `
-<ul
-  styleName="CategoryList"
+<FilterList
+  customClassName="CategoryList"
 >
-  <CategoryItem
-    count={1234}
+  <FilterItem
     isRefined={true}
-    name="Games"
     onChange={[Function]}
-  />
-  <CategoryItem
-    count={5678}
+    value="Games"
+  >
+    <span>
+      Games
+    </span>
+    <Counter
+      customClassName=""
+      value={1234}
+    />
+  </FilterItem>
+  <FilterItem
     isRefined={false}
-    name="Social"
     onChange={[Function]}
-  />
-</ul>
+    value="Social"
+  >
+    <span>
+      Social
+    </span>
+    <Counter
+      customClassName=""
+      value={5678}
+    />
+  </FilterItem>
+</FilterList>
 `;
