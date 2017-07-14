@@ -4,7 +4,7 @@
 
 Simple AppStore build with React, Algolia, Webpack 3, Babel, CSS Modules, ESLint, Jest, Enzyme.
 
-Live API: [https://algolia-appstore-front.herokuapp.com](https://algolia-appstore-front.herokuapp.com) (it's a free dyno so be patient for the boot time 🙂)
+Live: [https://algolia-appstore-front.herokuapp.com](https://algolia-appstore-front.herokuapp.com) (it's a free dyno so be patient for the boot time 🙂)
 
 ## Installation
 
