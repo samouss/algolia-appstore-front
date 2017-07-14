@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RatingList /> expect to render 1`] = `
+<FilterList
+  customClassName="RatingList"
+>
+  <FilterItem
+    isRefined={true}
+    onChange={[Function]}
+  >
+    <Stars
+      color=""
+      on={5}
+      value={4}
+    />
+    <Counter
+      customClassName=""
+      value={1234}
+    />
+  </FilterItem>
+  <FilterItem
+    isRefined={false}
+    onChange={[Function]}
+  >
+    <Stars
+      color=""
+      on={5}
+      value={2}
+    />
+    <Counter
+      customClassName=""
+      value={5678}
+    />
+  </FilterItem>
+</FilterList>
+`;
