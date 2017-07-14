@@ -7,7 +7,7 @@ const withFacet = ({
   maxValuesPerFacet = 10,
   getFacetValuesOptions = {},
   reduceFacetValues = x => x,
-}) => WrappedComponent => {
+} = {}) => WrappedComponent => {
   if (!facet) {
     throw new Error('You must provide the facet parameter.');
   }

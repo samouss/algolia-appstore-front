@@ -53,6 +53,10 @@ describe('algolia', () => {
       expect(component).toMatchSnapshot();
     });
 
+    it('expect to throw when facet is not provided', () => {
+      expect(() => withFacet()(Component)).toThrow('You must provide the facet parameter.');
+    });
+
     it('expect to have correct displayName', () => {
       const parameters = {
         ...defaultParameters,
