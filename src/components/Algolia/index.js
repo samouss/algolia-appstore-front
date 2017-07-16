@@ -1,5 +1,6 @@
 export { default as connect } from './connect';
 export { default as Provider } from './Provider';
+export { default as withClearRefinements } from './withClearRefinements';
 export { default as withDisjunctiveFacetRefinement } from './withDisjunctiveFacetRefinement';
 export { default as withFacet } from './withFacet';
 export { default as withIndex } from './withIndex';
