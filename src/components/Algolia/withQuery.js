@@ -1,8 +1,9 @@
+import flowRight from 'lodash.flowright';
 import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
-import { ContextTypes } from './Provider';
+import connect, { ConnectPropTypes } from './connect';
 
-const withQuery = WrappedComponent => {
+export const withQuery = WrappedComponent => {
   class WithQuery extends Component {
 
     constructor(props) {
@@ -20,15 +21,17 @@ const withQuery = WrappedComponent => {
         query,
       }));
 
-      this.context.algoliaHelper
+      this.props.helper
         .setQuery(query)
         .search();
     }
 
     render() {
+      const { helper, ...props } = this.props;
+
       return (
         <WrappedComponent
-          {...this.props}
+          {...props}
           {...this.state}
           onChange={this.onChange}
         />
@@ -42,9 +45,12 @@ const withQuery = WrappedComponent => {
     'withQuery',
   );
 
-  WithQuery.contextTypes = ContextTypes;
+  WithQuery.propTypes = ConnectPropTypes;
 
   return WithQuery;
 };
 
-export default withQuery;
+export default flowRight(
+  connect,
+  withQuery,
+);
