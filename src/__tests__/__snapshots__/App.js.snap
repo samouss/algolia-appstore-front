@@ -21,6 +21,7 @@ exports[`<App> expect to render 1`] = `
         <connect(withFacet(connect(withDisjunctiveFacetRefinement(CategoryList)))) />
         <connect(withFacet(connect(withNumericRefinement(RatingList)))) />
         <connect(withIndex(RatingSort)) />
+        <connect(withRefinements(connect(withClearRefinements(ClearList)))) />
       </AdvancedFilters>
     </Filters>
     <connect(withInfiniteHits(AppList)) />

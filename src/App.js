@@ -7,6 +7,7 @@ import SearchFilter from 'containers/SearchFilter';
 import CategoryFilter from 'containers/CategoryFilter';
 import RatingFilter from 'containers/RatingFilter';
 import RatingSort from 'containers/RatingSort';
+import ClearFilter from 'containers/ClearFilter';
 import InfiniteAppList from 'containers/InfiniteAppList';
 import configureAlgolia from './configureAlgolia';
 
@@ -24,6 +25,7 @@ const App = () => (
           <CategoryFilter />
           <RatingFilter />
           <RatingSort />
+          <ClearFilter />
         </AdvancedFilters>
       </Filters>
 
