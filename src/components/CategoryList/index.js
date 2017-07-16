@@ -12,7 +12,6 @@ const CategoryList = ({ facetValues, onChange }) => (
     {facetValues.map(({ name, count, isRefined }) => (
       <FilterItem
         key={name}
-        value={name}
         isRefined={isRefined}
         onChange={() => onChange(name, isRefined)}
       >

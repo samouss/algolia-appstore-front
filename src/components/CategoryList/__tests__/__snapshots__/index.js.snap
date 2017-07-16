@@ -7,7 +7,6 @@ exports[`<CategoryList /> expect to render 1`] = `
   <FilterItem
     isRefined={true}
     onChange={[Function]}
-    value="Games"
   >
     <span>
       Games
@@ -20,7 +19,6 @@ exports[`<CategoryList /> expect to render 1`] = `
   <FilterItem
     isRefined={false}
     onChange={[Function]}
-    value="Social"
   >
     <span>
       Social
