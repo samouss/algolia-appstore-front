@@ -7,14 +7,12 @@ import FilterItem from 'components/FilterItem';
 export const RatingSort = ({ indexName, onChange }) => (
   <FilterList>
     <FilterItem
-      value="apps_rating_desc"
       isRefined={indexName === 'apps_rating_desc'}
       onChange={() => onChange('apps_rating_desc')}
     >
       By highest rating
     </FilterItem>
     <FilterItem
-      value="apps_rating_asc"
       isRefined={indexName === 'apps_rating_asc'}
       onChange={() => onChange('apps_rating_asc')}
     >

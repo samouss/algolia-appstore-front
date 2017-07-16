@@ -7,14 +7,12 @@ exports[`<RatingSort /> expect to render 1`] = `
   <FilterItem
     isRefined={false}
     onChange={[Function]}
-    value="apps_rating_desc"
   >
     By highest rating
   </FilterItem>
   <FilterItem
     isRefined={false}
     onChange={[Function]}
-    value="apps_rating_asc"
   >
     By lowest rating
   </FilterItem>
