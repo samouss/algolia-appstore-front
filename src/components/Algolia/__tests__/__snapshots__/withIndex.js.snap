@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`algolia withIndex connect expect to render 1`] = `
+<withIndex(Component)
+  className="sample-class-name"
+  helper={
+    Object {
+      "addDisjunctiveFacetRefinement": [Function],
+      "addNumericRefinement": [Function],
+      "getIndex": [Function],
+      "getState": [Function],
+      "nextPage": [Function],
+      "on": [Function],
+      "removeDisjunctiveFacetRefinement": [Function],
+      "removeListener": [Function],
+      "removeNumericRefinement": [Function],
+      "search": [Function],
+      "setIndex": [Function],
+      "setQuery": [Function],
+      "setQueryParameter": [Function],
+    }
+  }
+/>
+`;
+
 exports[`algolia withIndex expect to render 1`] = `
 <Component
   className="sample-class-name"

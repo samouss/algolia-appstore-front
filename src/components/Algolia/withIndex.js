@@ -1,15 +1,16 @@
+import flowRight from 'lodash.flowright';
 import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
-import { ContextTypes } from './Provider';
+import connect, { ConnectPropTypes } from './connect';
 
-const withIndex = WrappedComponent => {
+export const withIndex = WrappedComponent => {
   class WithIndex extends Component {
 
-    constructor(props, context) {
-      super(props, context);
+    constructor(props) {
+      super(props);
 
       this.state = {
-        indexName: context.algoliaHelper.getIndex(),
+        indexName: props.helper.getIndex(),
       };
 
       this.onChange = this.onChange.bind(this);
@@ -20,15 +21,17 @@ const withIndex = WrappedComponent => {
         indexName,
       }));
 
-      this.context.algoliaHelper
+      this.props.helper
         .setIndex(indexName)
         .search();
     }
 
     render() {
+      const { helper, ...props } = this.props;
+
       return (
         <WrappedComponent
-          {...this.props}
+          {...props}
           {...this.state}
           onChange={this.onChange}
         />
@@ -42,9 +45,12 @@ const withIndex = WrappedComponent => {
     'withIndex',
   );
 
-  WithIndex.contextTypes = ContextTypes;
+  WithIndex.propTypes = ConnectPropTypes;
 
   return WithIndex;
 };
 
-export default withIndex;
+export default flowRight(
+  connect,
+  withIndex,
+);

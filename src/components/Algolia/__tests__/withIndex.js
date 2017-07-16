@@ -1,23 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
-import withIndex from '../withIndex';
+import connect, { withIndex } from '../withIndex';
 
 describe('algolia', () => {
   describe('withIndex', () => {
-    const createContext = () => ({
-      algoliaHelper: createMockAlgoliaHelper(),
-      algoliaClient: createMockAlgoliaClient(),
-    });
-
     const Component = props => (
       <input {...props} />
     );
 
     it('expect to render', () => {
-      const context = createContext();
       const props = {
         className: 'sample-class-name',
+        helper: createMockAlgoliaHelper(),
       };
 
       const ApplyComponent = withIndex(Component);
@@ -26,21 +21,24 @@ describe('algolia', () => {
         <ApplyComponent
           {...props}
         />,
-        { context },
       );
 
       expect(component).toMatchSnapshot();
     });
 
     it('expect to call onChange', () => {
-      const context = createContext();
+      const props = {
+        helper: createMockAlgoliaHelper(),
+      };
+
       const ApplyComponent = withIndex(Component);
 
       const onChange = jest.spyOn(ApplyComponent.prototype, 'onChange');
 
       const component = shallow(
-        <ApplyComponent />,
-        { context },
+        <ApplyComponent
+          {...props}
+        />,
       );
 
       component
@@ -62,7 +60,10 @@ describe('algolia', () => {
 
     describe('onChange', () => {
       it('expect to call setState', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withIndex(Component);
         const newIndexName = 'new_index_name';
 
@@ -71,8 +72,9 @@ describe('algolia', () => {
         };
 
         const component = shallow(
-          <ApplyComponent />,
-          { context },
+          <ApplyComponent
+            {...props}
+          />,
         );
 
         component.instance().onChange(newIndexName);
@@ -81,19 +83,47 @@ describe('algolia', () => {
       });
 
       it('expect to call setIndex and search', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withIndex(Component);
         const newIndexName = 'new_index_name';
 
         const component = shallow(
-          <ApplyComponent />,
-          { context },
+          <ApplyComponent
+            {...props}
+          />,
         );
 
         component.instance().onChange(newIndexName);
 
-        expect(context.algoliaHelper.setIndex).toHaveBeenCalledWith(newIndexName);
-        expect(context.algoliaHelper.search).toHaveBeenCalled();
+        expect(props.helper.setIndex).toHaveBeenCalledWith(newIndexName);
+        expect(props.helper.search).toHaveBeenCalled();
+      });
+    });
+
+    describe('connect', () => {
+      it('expect to render', () => {
+        const context = {
+          algoliaHelper: createMockAlgoliaHelper(),
+          algoliaClient: createMockAlgoliaClient(),
+        };
+
+        const props = {
+          className: 'sample-class-name',
+        };
+
+        const ApplyComponent = connect(Component);
+
+        const component = shallow(
+          <ApplyComponent
+            {...props}
+          />,
+          { context },
+        );
+
+        expect(component).toMatchSnapshot();
       });
     });
   });
