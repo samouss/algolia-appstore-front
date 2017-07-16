@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ALGOLIA_INDEX_NAME_DESC, ALGOLIA_INDEX_NAME_ASC } from 'env';
 import { withIndex } from 'components/Algolia';
 import FilterList from 'components/FilterList';
 import FilterItem from 'components/FilterItem';
@@ -7,14 +8,14 @@ import FilterItem from 'components/FilterItem';
 export const RatingSort = ({ indexName, onChange }) => (
   <FilterList>
     <FilterItem
-      isRefined={indexName === 'apps_rating_desc'}
-      onChange={() => onChange('apps_rating_desc')}
+      isRefined={indexName === ALGOLIA_INDEX_NAME_DESC}
+      onChange={() => onChange(ALGOLIA_INDEX_NAME_DESC)}
     >
       By highest rating
     </FilterItem>
     <FilterItem
-      isRefined={indexName === 'apps_rating_asc'}
-      onChange={() => onChange('apps_rating_asc')}
+      isRefined={indexName === ALGOLIA_INDEX_NAME_ASC}
+      onChange={() => onChange(ALGOLIA_INDEX_NAME_ASC)}
     >
       By lowest rating
     </FilterItem>

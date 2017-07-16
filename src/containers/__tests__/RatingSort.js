@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { ALGOLIA_INDEX_NAME_DESC, ALGOLIA_INDEX_NAME_ASC } from 'env';
 import WithQuery, { RatingSort } from '../RatingSort';
 
 jest.mock('components/Algolia', () => ({
@@ -49,7 +50,7 @@ describe('<RatingSort />', () => {
       .first()
       .simulate('change');
 
-    expect(props.onChange).toHaveBeenCalledWith('apps_rating_desc');
+    expect(props.onChange).toHaveBeenCalledWith(ALGOLIA_INDEX_NAME_DESC);
   });
 
   it('expect to call onChange on second sort', () => {
@@ -69,7 +70,7 @@ describe('<RatingSort />', () => {
       .at(1)
       .simulate('change');
 
-    expect(props.onChange).toHaveBeenCalledWith('apps_rating_asc');
+    expect(props.onChange).toHaveBeenCalledWith(ALGOLIA_INDEX_NAME_ASC);
   });
 
   describe('withIndex', () => {

@@ -1,7 +1,9 @@
+import { ALGOLIA_APP_ID, ALGOLIA_API_KEY, ALGOLIA_INDEX_NAME_DESC } from './env';
+
 const configureAlgolia = () => ({
-  appId: 'RTMJH2ID8J',
-  apiKey: 'f8dac63a6dc38d8bd5893dad8969d819',
-  indexName: 'apps_rating_desc',
+  appId: ALGOLIA_APP_ID,
+  apiKey: ALGOLIA_API_KEY,
+  indexName: ALGOLIA_INDEX_NAME_DESC,
   options: {
     disjunctiveFacets: [
       'category',
