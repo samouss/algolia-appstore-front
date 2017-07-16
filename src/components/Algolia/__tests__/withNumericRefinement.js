@@ -1,15 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
-import withNumericRefinement from '../withNumericRefinement';
+import connect, { withNumericRefinement } from '../withNumericRefinement';
 
 describe('algolia', () => {
   describe('withNumericRefinement', () => {
-    const createContext = () => ({
-      algoliaHelper: createMockAlgoliaHelper(),
-      algoliaClient: createMockAlgoliaClient(),
-    });
-
     const defaultParameters = {
       attribute: 'rating',
       operator: '>=',
@@ -20,14 +15,13 @@ describe('algolia', () => {
     );
 
     it('expect to render', () => {
-      const context = createContext();
-
       const parameters = {
         ...defaultParameters,
       };
 
       const props = {
         className: 'sample-class-name',
+        helper: createMockAlgoliaHelper(),
       };
 
       const ApplyComponent = withNumericRefinement(parameters)(Component);
@@ -36,7 +30,6 @@ describe('algolia', () => {
         <ApplyComponent
           {...props}
         />,
-        { context },
       );
 
       expect(component).toMatchSnapshot();
@@ -55,10 +48,12 @@ describe('algolia', () => {
     });
 
     it('expect to call onChange', () => {
-      const context = createContext();
-
       const parameters = {
         ...defaultParameters,
+      };
+
+      const props = {
+        helper: createMockAlgoliaHelper(),
       };
 
       const ApplyComponent = withNumericRefinement(parameters)(Component);
@@ -66,8 +61,9 @@ describe('algolia', () => {
       const onChange = jest.spyOn(ApplyComponent.prototype, 'onChange');
 
       const component = shallow(
-        <ApplyComponent />,
-        { context },
+        <ApplyComponent
+          {...props}
+        />,
       );
 
       component
@@ -93,17 +89,20 @@ describe('algolia', () => {
 
     describe('onChange', () => {
       it('expect to call removeNumericRefinement and search when isRefined', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
+        };
+
+        const props = {
+          helper: createMockAlgoliaHelper(),
         };
 
         const ApplyComponent = withNumericRefinement(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent />,
-          { context },
+          <ApplyComponent
+            {...props}
+          />,
         );
 
         component.instance().onChange(
@@ -111,27 +110,30 @@ describe('algolia', () => {
           true,
         );
 
-        expect(context.algoliaHelper.removeNumericRefinement).toHaveBeenCalledWith(
+        expect(props.helper.removeNumericRefinement).toHaveBeenCalledWith(
           parameters.attribute,
         );
 
-        expect(context.algoliaHelper.addNumericRefinement).not.toHaveBeenCalled();
+        expect(props.helper.addNumericRefinement).not.toHaveBeenCalled();
 
-        expect(context.algoliaHelper.search).toHaveBeenCalled();
+        expect(props.helper.search).toHaveBeenCalled();
       });
 
       it('expect to call removeDisjunctive, addNumericRefinement and search', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
+        };
+
+        const props = {
+          helper: createMockAlgoliaHelper(),
         };
 
         const ApplyComponent = withNumericRefinement(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent />,
-          { context },
+          <ApplyComponent
+            {...props}
+          />,
         );
 
         component.instance().onChange(
@@ -139,17 +141,45 @@ describe('algolia', () => {
           false,
         );
 
-        expect(context.algoliaHelper.removeNumericRefinement).toHaveBeenCalledWith(
+        expect(props.helper.removeNumericRefinement).toHaveBeenCalledWith(
           parameters.attribute,
         );
 
-        expect(context.algoliaHelper.addNumericRefinement).toHaveBeenCalledWith(
+        expect(props.helper.addNumericRefinement).toHaveBeenCalledWith(
           parameters.attribute,
           parameters.operator,
           3,
         );
 
-        expect(context.algoliaHelper.search).toHaveBeenCalled();
+        expect(props.helper.search).toHaveBeenCalled();
+      });
+    });
+
+    describe('connect', () => {
+      it('expect to render', () => {
+        const context = {
+          algoliaHelper: createMockAlgoliaHelper(),
+          algoliaClient: createMockAlgoliaClient(),
+        };
+
+        const parameters = {
+          ...defaultParameters,
+        };
+
+        const props = {
+          className: 'sample-class-name',
+        };
+
+        const ApplyComponent = connect(parameters)(Component);
+
+        const component = shallow(
+          <ApplyComponent
+            {...props}
+          />,
+          { context },
+        );
+
+        expect(component).toMatchSnapshot();
       });
     });
   });

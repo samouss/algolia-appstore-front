@@ -1,8 +1,9 @@
+import flowRight from 'lodash.flowright';
 import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
-import { ContextTypes } from './Provider';
+import connect, { ConnectPropTypes } from './connect';
 
-const withNumericRefinement = ({
+export const withNumericRefinement = ({
   attribute,
   operator,
 } = {}) => WrappedComponent => {
@@ -23,24 +24,26 @@ const withNumericRefinement = ({
     }
 
     onChange(value, isRefined) {
-      const { algoliaHelper } = this.context;
+      const { helper } = this.props;
 
       if (isRefined) {
-        return algoliaHelper
+        return helper
           .removeNumericRefinement(attribute)
           .search();
       }
 
-      algoliaHelper
+      helper
         .removeNumericRefinement(attribute)
         .addNumericRefinement(attribute, operator, value)
         .search();
     }
 
     render() {
+      const { helper, ...props } = this.props;
+
       return (
         <WrappedComponent
-          {...this.props}
+          {...props}
           onChange={this.onChange}
         />
       );
@@ -53,9 +56,12 @@ const withNumericRefinement = ({
     'withNumericRefinement',
   );
 
-  WithDisjunctiveFacetRefinement.contextTypes = ContextTypes;
+  WithDisjunctiveFacetRefinement.propTypes = ConnectPropTypes;
 
   return WithDisjunctiveFacetRefinement;
 };
 
-export default withNumericRefinement;
+export default (...args) => flowRight(
+  connect,
+  withNumericRefinement(...args),
+);
