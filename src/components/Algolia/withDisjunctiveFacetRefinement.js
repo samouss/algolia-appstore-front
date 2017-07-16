@@ -1,8 +1,9 @@
+import flowRight from 'lodash.flowright';
 import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
-import { ContextTypes } from './Provider';
+import connect, { ConnectPropTypes } from './connect';
 
-const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedComponent => {
+export const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedComponent => {
   if (!facet) {
     throw new Error('You must provide the facet parameter.');
   }
@@ -16,24 +17,26 @@ const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedComponent => {
     }
 
     onChange(value, isRefined) {
-      const { algoliaHelper } = this.context;
+      const { helper } = this.props;
 
       if (isRefined) {
-        return algoliaHelper
+        return helper
           .removeDisjunctiveFacetRefinement(facet)
           .search();
       }
 
-      algoliaHelper
+      helper
         .removeDisjunctiveFacetRefinement(facet)
         .addDisjunctiveFacetRefinement(facet, value)
         .search();
     }
 
     render() {
+      const { helper, ...props } = this.props;
+
       return (
         <WrappedComponent
-          {...this.props}
+          {...props}
           onChange={this.onChange}
         />
       );
@@ -46,9 +49,12 @@ const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedComponent => {
     'withDisjunctiveFacetRefinement',
   );
 
-  WithDisjunctiveFacetRefinement.contextTypes = ContextTypes;
+  WithDisjunctiveFacetRefinement.propTypes = ConnectPropTypes;
 
   return WithDisjunctiveFacetRefinement;
 };
 
-export default withDisjunctiveFacetRefinement;
+export default (...args) => flowRight(
+  connect,
+  withDisjunctiveFacetRefinement(...args),
+);
