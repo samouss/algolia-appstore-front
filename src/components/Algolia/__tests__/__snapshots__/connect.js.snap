@@ -7,6 +7,7 @@ exports[`algolia connect expect to render 1`] = `
     Object {
       "addDisjunctiveFacetRefinement": [Function],
       "addNumericRefinement": [Function],
+      "clearRefinements": [Function],
       "getIndex": [Function],
       "getState": [Function],
       "nextPage": [Function],
