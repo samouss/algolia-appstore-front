@@ -6,4 +6,5 @@ export { default as withIndex } from './withIndex';
 export { default as withInfiniteHits } from './withInfiniteHits';
 export { default as withNumericRefinement } from './withNumericRefinement';
 export { default as withQuery } from './withQuery';
+export { default as withRefinements } from './withRefinements';
 export * from './utils';
