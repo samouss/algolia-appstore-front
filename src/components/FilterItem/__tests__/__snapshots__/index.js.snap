@@ -3,6 +3,7 @@
 exports[`<FilterItem /> expect to render 1`] = `
 <li>
   <a
+    className=""
     href=""
     onClick={[Function]}
     styleName="FilterItem"
@@ -15,9 +16,23 @@ exports[`<FilterItem /> expect to render 1`] = `
 exports[`<FilterItem /> expect to render when refined 1`] = `
 <li>
   <a
+    className=""
     href=""
     onClick={[Function]}
     styleName="FilterItem FilterItem--active"
+  >
+    Value
+  </a>
+</li>
+`;
+
+exports[`<FilterItem /> expect to render with custom className 1`] = `
+<li>
+  <a
+    className="custom-class-name"
+    href=""
+    onClick={[Function]}
+    styleName="FilterItem"
   >
     Value
   </a>

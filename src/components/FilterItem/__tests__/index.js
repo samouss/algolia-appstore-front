@@ -24,6 +24,23 @@ describe('<FilterItem />', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('expect to render with custom className', () => {
+    const props = {
+      ...defaultProps,
+      customClassName: 'custom-class-name',
+    };
+
+    const component = shallow(
+      <FilterItem
+        {...props}
+      >
+        Value
+      </FilterItem>,
+    );
+
+    expect(component).toMatchSnapshot();
+  });
+
   it('expect to render when refined', () => {
     const props = {
       ...defaultProps,

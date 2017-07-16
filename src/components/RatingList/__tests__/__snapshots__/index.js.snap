@@ -5,6 +5,7 @@ exports[`<RatingList /> expect to render 1`] = `
   customClassName="RatingList"
 >
   <FilterItem
+    customClassName=""
     isRefined={true}
     onChange={[Function]}
   >
@@ -19,6 +20,7 @@ exports[`<RatingList /> expect to render 1`] = `
     />
   </FilterItem>
   <FilterItem
+    customClassName=""
     isRefined={false}
     onChange={[Function]}
   >

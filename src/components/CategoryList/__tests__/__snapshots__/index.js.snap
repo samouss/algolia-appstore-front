@@ -5,6 +5,7 @@ exports[`<CategoryList /> expect to render 1`] = `
   customClassName="CategoryList"
 >
   <FilterItem
+    customClassName=""
     isRefined={true}
     onChange={[Function]}
   >
@@ -17,6 +18,7 @@ exports[`<CategoryList /> expect to render 1`] = `
     />
   </FilterItem>
   <FilterItem
+    customClassName=""
     isRefined={false}
     onChange={[Function]}
   >

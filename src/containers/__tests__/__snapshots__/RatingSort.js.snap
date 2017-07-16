@@ -5,12 +5,14 @@ exports[`<RatingSort /> expect to render 1`] = `
   customClassName=""
 >
   <FilterItem
+    customClassName=""
     isRefined={false}
     onChange={[Function]}
   >
     By highest rating
   </FilterItem>
   <FilterItem
+    customClassName=""
     isRefined={false}
     onChange={[Function]}
   >

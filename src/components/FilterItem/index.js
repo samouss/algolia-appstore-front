@@ -7,6 +7,7 @@ const FilterItem = ({
   isRefined,
   children,
   onChange,
+  customClassName,
 }) => {
   const onClick = event => {
     event.preventDefault();
@@ -17,6 +18,7 @@ const FilterItem = ({
     <li>
       <a
         href=""
+        className={customClassName}
         styleName={cx('FilterItem', {
           'FilterItem--active': isRefined,
         })}
@@ -32,6 +34,11 @@ FilterItem.propTypes = {
   isRefined: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onChange: PropTypes.func.isRequired,
+  customClassName: PropTypes.string,
+};
+
+FilterItem.defaultProps = {
+  customClassName: '',
 };
 
 export default FilterItem;
