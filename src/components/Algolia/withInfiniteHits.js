@@ -1,8 +1,9 @@
+import flowRight from 'lodash.flowright';
 import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
-import { ContextTypes } from './Provider';
+import connect, { ConnectPropTypes } from './connect';
 
-const withInfiniteHits = ({
+export const withInfiniteHits = ({
   hitsPerPage = 25,
 } = {}) => WrappedComponent => {
   class WithInfiniteHits extends Component {
@@ -26,18 +27,18 @@ const withInfiniteHits = ({
     }
 
     componentDidMount() {
-      const { algoliaHelper } = this.context;
+      const { helper } = this.props;
 
-      algoliaHelper.setQueryParameter(
+      helper.setQueryParameter(
         'hitsPerPage',
         hitsPerPage,
       );
 
-      algoliaHelper.on('result', this.updateState);
+      helper.on('result', this.updateState);
     }
 
     componentWillUnmount() {
-      this.context.algoliaHelper.removeListener('result', this.updateState);
+      this.props.helper.removeListener('result', this.updateState);
     }
 
     onNextPage() {
@@ -51,7 +52,7 @@ const withInfiniteHits = ({
         isLoading: true,
       }));
 
-      this.context.algoliaHelper
+      this.props.helper
         .nextPage()
         .search();
     }
@@ -74,9 +75,11 @@ const withInfiniteHits = ({
     }
 
     render() {
+      const { helper, ...props } = this.props;
+
       return (
         <WrappedComponent
-          {...this.props}
+          {...props}
           {...this.state}
           onNextPage={this.onNextPage}
         />
@@ -90,9 +93,12 @@ const withInfiniteHits = ({
     'withInfiniteHits',
   );
 
-  WithInfiniteHits.contextTypes = ContextTypes;
+  WithInfiniteHits.propTypes = ConnectPropTypes;
 
   return WithInfiniteHits;
 };
 
-export default withInfiniteHits;
+export default (...args) => flowRight(
+  connect,
+  withInfiniteHits(...args),
+);

@@ -2,15 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
-import withInfiniteHits from '../withInfiniteHits';
+import connect, { withInfiniteHits } from '../withInfiniteHits';
 
 describe('algolia', () => {
   describe('withInfiniteHits', () => {
-    const createContext = () => ({
-      algoliaHelper: createMockAlgoliaHelper(),
-      algoliaClient: createMockAlgoliaClient(),
-    });
-
     const Component = ({ children, className }) => (
       <div className={className}>{children}</div>
     );
@@ -25,10 +20,9 @@ describe('algolia', () => {
     };
 
     it('expect to render', () => {
-      const context = createContext();
-
       const props = {
         className: 'sample-class-name',
+        helper: createMockAlgoliaHelper(),
       };
 
       const ApplyComponent = withInfiniteHits()(Component);
@@ -39,7 +33,6 @@ describe('algolia', () => {
         >
           <div>Content</div>
         </ApplyComponent>,
-        { context },
       );
 
       expect(component).toMatchSnapshot();
@@ -56,59 +49,71 @@ describe('algolia', () => {
 
     describe('componentDidMount', () => {
       it('expect to call setQueryParameter with default parameter', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentDidMount();
 
-        expect(context.algoliaHelper.setQueryParameter).toHaveBeenCalledWith(
+        expect(props.helper.setQueryParameter).toHaveBeenCalledWith(
           'hitsPerPage',
           25,
         );
       });
 
       it('expect to call setQueryParameter with given parameter', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits({
           hitsPerPage: 50,
         })(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentDidMount();
 
-        expect(context.algoliaHelper.setQueryParameter).toHaveBeenCalledWith(
+        expect(props.helper.setQueryParameter).toHaveBeenCalledWith(
           'hitsPerPage',
           50,
         );
       });
 
       it('expect to subscribe to result event', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentDidMount();
 
-        expect(context.algoliaHelper.on).toHaveBeenCalledWith(
+        expect(props.helper.on).toHaveBeenCalledWith(
           'result',
           component.instance().updateState,
         );
@@ -117,19 +122,23 @@ describe('algolia', () => {
 
     describe('componentWillUnmount', () => {
       it('expect to unsubscribe to result event', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentWillUnmount();
 
-        expect(context.algoliaHelper.removeListener).toHaveBeenCalledWith(
+        expect(props.helper.removeListener).toHaveBeenCalledWith(
           'result',
           component.instance().updateState,
         );
@@ -138,14 +147,18 @@ describe('algolia', () => {
 
     describe('onNextPage', () => {
       it('expect to call nextPage and search', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         // @NOTE: simulate initial load
@@ -155,19 +168,23 @@ describe('algolia', () => {
 
         expect(component.state().isLoading).toBe(true);
         expect(component.state().isEndReached).toBe(false);
-        expect(context.algoliaHelper.nextPage).toHaveBeenCalled();
-        expect(context.algoliaHelper.search).toHaveBeenCalled();
+        expect(props.helper.nextPage).toHaveBeenCalled();
+        expect(props.helper.search).toHaveBeenCalled();
       });
 
       it('expect to not call nextPage and search if loading', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.setState({
@@ -178,19 +195,23 @@ describe('algolia', () => {
 
         component.instance().onNextPage();
 
-        expect(context.algoliaHelper.nextPage).not.toHaveBeenCalled();
-        expect(context.algoliaHelper.search).not.toHaveBeenCalled();
+        expect(props.helper.nextPage).not.toHaveBeenCalled();
+        expect(props.helper.search).not.toHaveBeenCalled();
       });
 
       it('expect to not call nextPage and search if end reached', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.setState({
@@ -200,21 +221,25 @@ describe('algolia', () => {
 
         component.instance().onNextPage();
 
-        expect(context.algoliaHelper.nextPage).not.toHaveBeenCalled();
-        expect(context.algoliaHelper.search).not.toHaveBeenCalled();
+        expect(props.helper.nextPage).not.toHaveBeenCalled();
+        expect(props.helper.search).not.toHaveBeenCalled();
       });
     });
 
     describe('updateState', () => {
       it('expect to update with concatenate hits', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         const prevState = {
@@ -263,14 +288,18 @@ describe('algolia', () => {
       });
 
       it('expect to update with hits', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withInfiniteHits()(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         const prevState = {
@@ -314,6 +343,32 @@ describe('algolia', () => {
         component.instance().updateState(content);
 
         expect(component.state()).toEqual(expectation);
+      });
+    });
+
+    describe('connect', () => {
+      it('expect to render', () => {
+        const context = {
+          algoliaHelper: createMockAlgoliaHelper(),
+          algoliaClient: createMockAlgoliaClient(),
+        };
+
+        const props = {
+          className: 'sample-class-name',
+        };
+
+        const ApplyComponent = connect()(Component);
+
+        const component = shallow(
+          <ApplyComponent
+            {...props}
+          >
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        expect(component).toMatchSnapshot();
       });
     });
   });
