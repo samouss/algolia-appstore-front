@@ -26,7 +26,7 @@ module.exports = (options = {}) => {
   return {
     devtool: !isProduction ? 'eval' : 'source-map',
     entry: [
-      `${__dirname}/src/polyfill.js`,
+      `${__dirname}/src/polyfills.js`,
       `${__dirname}/src/index.js`,
     ],
     output: {
