@@ -16,14 +16,14 @@ exports[`<App> expect to render 1`] = `
 >
   <Layout>
     <Filters>
-      <withQuery(SearchFilter) />
+      <connect(withQuery(SearchFilter)) />
       <AdvancedFilters>
-        <withFacet(withDisjunctiveFacetRefinement(CategoryList)) />
-        <withFacet(withNumericRefinement(RatingList)) />
-        <withIndex(RatingSort) />
+        <connect(withFacet(connect(withDisjunctiveFacetRefinement(CategoryList)))) />
+        <connect(withFacet(connect(withNumericRefinement(RatingList)))) />
+        <connect(withIndex(RatingSort)) />
       </AdvancedFilters>
     </Filters>
-    <withInfiniteHits(AppList) />
+    <connect(withInfiniteHits(AppList)) />
   </Layout>
 </Provider>
 `;
