@@ -1,0 +1,7 @@
+.ClearList__Item {
+  justify-content: flex-start;
+
+  & > i {
+    margin-right: 10px;
+  }
+}

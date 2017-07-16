@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ClearList /> expect to render 1`] = `
+<FilterList
+  customClassName=""
+>
+  <FilterItem
+    customClassName="ClearList__Item"
+    isRefined={false}
+    onChange={[Function]}
+  >
+    <i
+      className="fa fa-times-circle"
+    />
+    Clear filter(s)
+  </FilterItem>
+</FilterList>
+`;
+
+exports[`<ClearList /> expect to render nothing 1`] = `null`;
