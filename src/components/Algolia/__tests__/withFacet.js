@@ -2,15 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 import { createMockAlgoliaClient, createMockAlgoliaHelper } from 'test/algolia';
-import withFacet from '../withFacet';
+import connect, { withFacet } from '../withFacet';
 
 describe('algolia', () => {
   describe('withFacet', () => {
-    const createContext = () => ({
-      algoliaHelper: createMockAlgoliaHelper(),
-      algoliaClient: createMockAlgoliaClient(),
-    });
-
     const defaultParameters = {
       facet: 'category',
     };
@@ -29,14 +24,13 @@ describe('algolia', () => {
     };
 
     it('expect to render', () => {
-      const context = createContext();
-
       const parameters = {
         ...defaultParameters,
       };
 
       const props = {
         className: 'sample-class-name',
+        helper: createMockAlgoliaHelper(),
       };
 
       const ApplyComponent = withFacet(parameters)(Component);
@@ -47,7 +41,6 @@ describe('algolia', () => {
         >
           <div>Content</div>
         </ApplyComponent>,
-        { context },
       );
 
       expect(component).toMatchSnapshot();
@@ -72,73 +65,82 @@ describe('algolia', () => {
 
     describe('componentDidMount', () => {
       it('expect to set maxValuesPerFacet with default value', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
+        };
+
+        const props = {
+          helper: createMockAlgoliaHelper(),
         };
 
         const ApplyComponent = withFacet(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentDidMount();
 
-        expect(context.algoliaHelper.setQueryParameter).toHaveBeenCalledWith(
+        expect(props.helper.setQueryParameter).toHaveBeenCalledWith(
           'maxValuesPerFacet',
           10,
         );
       });
 
       it('expect to set maxValuesPerFacet with given value', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
           maxValuesPerFacet: 25,
         };
 
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withFacet(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentDidMount();
 
-        expect(context.algoliaHelper.setQueryParameter).toHaveBeenCalledWith(
+        expect(props.helper.setQueryParameter).toHaveBeenCalledWith(
           'maxValuesPerFacet',
           25,
         );
       });
 
       it('expect to subscribe to result event', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
+        };
+
+        const props = {
+          helper: createMockAlgoliaHelper(),
         };
 
         const ApplyComponent = withFacet(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentDidMount();
 
-        expect(context.algoliaHelper.on).toHaveBeenCalledWith(
+        expect(props.helper.on).toHaveBeenCalledWith(
           'result',
           component.instance().updateState,
         );
@@ -147,24 +149,27 @@ describe('algolia', () => {
 
     describe('componentWillUnmount', () => {
       it('expect to unsubscribe to result event', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
+        };
+
+        const props = {
+          helper: createMockAlgoliaHelper(),
         };
 
         const ApplyComponent = withFacet(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         component.instance().componentWillUnmount();
 
-        expect(context.algoliaHelper.removeListener).toHaveBeenCalledWith(
+        expect(props.helper.removeListener).toHaveBeenCalledWith(
           'result',
           component.instance().updateState,
         );
@@ -173,19 +178,22 @@ describe('algolia', () => {
 
     describe('updateState', () => {
       it('expect to sort facet values by default', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
+        };
+
+        const props = {
+          helper: createMockAlgoliaHelper(),
         };
 
         const ApplyComponent = withFacet(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         const content = {
@@ -201,8 +209,6 @@ describe('algolia', () => {
       });
 
       it('expect to sort facet values by given options', () => {
-        const context = createContext();
-
         const parameters = {
           ...defaultParameters,
           getFacetValuesOptions: {
@@ -210,13 +216,18 @@ describe('algolia', () => {
           },
         };
 
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
+
         const ApplyComponent = withFacet(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         const content = {
@@ -232,9 +243,11 @@ describe('algolia', () => {
       });
 
       it('expect to reduce facet values from given function', () => {
-        const context = createContext();
+        const props = {
+          helper: createMockAlgoliaHelper(),
+        };
 
-        context.algoliaHelper.getState.mockImplementationOnce(() => ({
+        props.helper.getState.mockImplementationOnce(() => ({
           state: 'the state',
         }));
 
@@ -248,10 +261,11 @@ describe('algolia', () => {
         const ApplyComponent = withFacet(parameters)(Component);
 
         const component = shallow(
-          <ApplyComponent>
+          <ApplyComponent
+            {...props}
+          >
             <div>Content</div>
           </ApplyComponent>,
-          { context },
         );
 
         const content = {
@@ -277,6 +291,36 @@ describe('algolia', () => {
             state: 'the state',
           },
         );
+      });
+    });
+
+    describe('connect', () => {
+      it('expect to render', () => {
+        const context = {
+          algoliaHelper: createMockAlgoliaHelper(),
+          algoliaClient: createMockAlgoliaClient(),
+        };
+
+        const parameters = {
+          ...defaultParameters,
+        };
+
+        const props = {
+          className: 'sample-class-name',
+        };
+
+        const ApplyComponent = connect(parameters)(Component);
+
+        const component = shallow(
+          <ApplyComponent
+            {...props}
+          >
+            <div>Content</div>
+          </ApplyComponent>,
+          { context },
+        );
+
+        expect(component).toMatchSnapshot();
       });
     });
   });

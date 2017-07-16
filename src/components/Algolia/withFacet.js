@@ -1,8 +1,9 @@
+import flowRight from 'lodash.flowright';
 import React, { Component } from 'react';
 import { getDisplayName } from 'core/utils';
-import { ContextTypes } from './Provider';
+import connect, { ConnectPropTypes } from './connect';
 
-const withFacet = ({
+export const withFacet = ({
   facet,
   maxValuesPerFacet = 10,
   getFacetValuesOptions = {},
@@ -25,19 +26,19 @@ const withFacet = ({
     }
 
     componentDidMount() {
-      const { algoliaHelper } = this.context;
+      const { helper } = this.props;
 
-      algoliaHelper.setQueryParameter('maxValuesPerFacet', maxValuesPerFacet);
+      helper.setQueryParameter('maxValuesPerFacet', maxValuesPerFacet);
 
-      algoliaHelper.on('result', this.updateState);
+      helper.on('result', this.updateState);
     }
 
     componentWillUnmount() {
-      this.context.algoliaHelper.removeListener('result', this.updateState);
+      this.props.helper.removeListener('result', this.updateState);
     }
 
     updateState(content) {
-      const { algoliaHelper } = this.context;
+      const { helper } = this.props;
 
       const facetValues = content.getFacetValues(
         facet,
@@ -46,7 +47,7 @@ const withFacet = ({
 
       const facetValuesReduced = reduceFacetValues(
         facetValues,
-        algoliaHelper.getState(),
+        helper.getState(),
       );
 
       this.setState(() => ({
@@ -55,9 +56,11 @@ const withFacet = ({
     }
 
     render() {
+      const { helper, ...props } = this.props;
+
       return (
         <WrappedComponent
-          {...this.props}
+          {...props}
           {...this.state}
         />
       );
@@ -70,9 +73,12 @@ const withFacet = ({
     'withFacet',
   );
 
-  WithFacet.contextTypes = ContextTypes;
+  WithFacet.propTypes = ConnectPropTypes;
 
   return WithFacet;
 };
 
-export default withFacet;
+export default (...args) => flowRight(
+  connect,
+  withFacet(...args),
+);
