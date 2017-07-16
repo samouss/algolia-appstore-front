@@ -53,10 +53,10 @@
     "jest": "20.0.4",
     "postcss-custom-media": "6.0.0",
     "postcss-loader": "2.0.6",
-    "postcss-nested": "2.0.2",
+    "postcss-nested": "2.0.4",
     "react-test-renderer": "15.6.1",
     "style-loader": "0.18.2",
-    "webpack": "3.2.0",
+    "webpack": "3.3.0",
     "webpack-dev-server": "2.5.1"
   },
   "dependencies": {
