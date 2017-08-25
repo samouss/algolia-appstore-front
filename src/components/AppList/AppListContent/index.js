@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InfiniteList from 'react-infinite-scroll-list';
 import AppItem, { HitPropTypes } from 'components/AppItem';
-import './index.css';
+import style from './index.css';
 
 const AppListContent = ({
   hits,
@@ -11,12 +11,13 @@ const AppListContent = ({
   onNextPage,
 }) => (
   <InfiniteList
-    styleName="AppListContent"
-    containerTagName="ul"
+    root="viewport"
     isLoading={isLoading}
     isEndReached={isEndReached}
-    isAttachOnWindow
     onReachThreshold={onNextPage}
+    containerClassName={style.AppListContent}
+    containerTagName="ul"
+    sentinelTagName="li"
     threshold={1700}
   >
     {hits.map(hit => (
