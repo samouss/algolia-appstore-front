@@ -25,8 +25,8 @@ const Stars = ({ value, on, color }) => (
       const next = index + 1;
 
       return (index < value && value < next) ? <StarHalf key={index} />
-      : (next <= value) ? <Star key={index} />
-      : <StarEmpty key={index} />;
+        : (next <= value) ? <Star key={index} />
+          : <StarEmpty key={index} />;
     })}
   </div>
 );

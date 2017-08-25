@@ -16,7 +16,6 @@ export const withNumericRefinement = ({
   }
 
   class WithDisjunctiveFacetRefinement extends Component {
-
     constructor(props) {
       super(props);
 
@@ -48,7 +47,6 @@ export const withNumericRefinement = ({
         />
       );
     }
-
   }
 
   WithDisjunctiveFacetRefinement.displayName = getDisplayName(

@@ -5,7 +5,6 @@ import connect, { ConnectPropTypes } from './connect';
 
 export const withRefinements = WrappedComponent => {
   class WithRefinements extends Component {
-
     constructor(props) {
       super(props);
 
@@ -42,7 +41,6 @@ export const withRefinements = WrappedComponent => {
         />
       );
     }
-
   }
 
   WithRefinements.displayName = getDisplayName(

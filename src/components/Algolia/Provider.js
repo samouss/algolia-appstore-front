@@ -10,7 +10,6 @@ export const ContextTypes = {
 };
 
 class Provider extends Component {
-
   constructor(props) {
     super(props);
 
@@ -35,7 +34,6 @@ class Provider extends Component {
   render() {
     return Children.only(this.props.children);
   }
-
 }
 
 Provider.propTypes = {

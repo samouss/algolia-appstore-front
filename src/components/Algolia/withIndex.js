@@ -5,7 +5,6 @@ import connect, { ConnectPropTypes } from './connect';
 
 export const withIndex = WrappedComponent => {
   class WithIndex extends Component {
-
     constructor(props) {
       super(props);
 
@@ -37,7 +36,6 @@ export const withIndex = WrappedComponent => {
         />
       );
     }
-
   }
 
   WithIndex.displayName = getDisplayName(

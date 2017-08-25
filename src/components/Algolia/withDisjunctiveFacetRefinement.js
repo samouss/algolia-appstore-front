@@ -9,7 +9,6 @@ export const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedCompone
   }
 
   class WithDisjunctiveFacetRefinement extends Component {
-
     constructor(props) {
       super(props);
 
@@ -41,7 +40,6 @@ export const withDisjunctiveFacetRefinement = ({ facet } = {}) => WrappedCompone
         />
       );
     }
-
   }
 
   WithDisjunctiveFacetRefinement.displayName = getDisplayName(

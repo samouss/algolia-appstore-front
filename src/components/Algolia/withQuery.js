@@ -5,7 +5,6 @@ import connect, { ConnectPropTypes } from './connect';
 
 export const withQuery = WrappedComponent => {
   class WithQuery extends Component {
-
     constructor(props) {
       super(props);
 
@@ -37,7 +36,6 @@ export const withQuery = WrappedComponent => {
         />
       );
     }
-
   }
 
   WithQuery.displayName = getDisplayName(

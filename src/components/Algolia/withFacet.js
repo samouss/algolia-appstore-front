@@ -14,7 +14,6 @@ export const withFacet = ({
   }
 
   class WithFacet extends Component {
-
     constructor(props) {
       super(props);
 
@@ -65,7 +64,6 @@ export const withFacet = ({
         />
       );
     }
-
   }
 
   WithFacet.displayName = getDisplayName(

@@ -4,7 +4,6 @@ import cx from 'classnames';
 import './index.css';
 
 class AdvancedFilters extends Component {
-
   constructor(props) {
     super(props);
 
@@ -49,7 +48,6 @@ class AdvancedFilters extends Component {
       </div>
     );
   }
-
 }
 
 AdvancedFilters.propTypes = {

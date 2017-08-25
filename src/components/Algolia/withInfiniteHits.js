@@ -7,7 +7,6 @@ export const withInfiniteHits = ({
   hitsPerPage = 25,
 } = {}) => WrappedComponent => {
   class WithInfiniteHits extends Component {
-
     constructor(props) {
       super(props);
 
@@ -85,7 +84,6 @@ export const withInfiniteHits = ({
         />
       );
     }
-
   }
 
   WithInfiniteHits.displayName = getDisplayName(
