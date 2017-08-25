@@ -62,11 +62,11 @@
     "whatwg-fetch": "2.0.3"
   },
   "dependencies": {
-    "algoliasearch": "3.24.0",
-    "algoliasearch-helper": "2.21.0",
+    "algoliasearch": "3.24.3",
+    "algoliasearch-helper": "2.21.2",
     "classnames": "2.2.5",
     "compression": "1.7.0",
-    "express": "4.15.3",
+    "express": "4.15.4",
     "lodash.escape": "4.0.1",
     "lodash.flowright": "3.5.0",
     "prop-types": "15.5.10",
